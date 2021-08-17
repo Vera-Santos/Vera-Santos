@@ -1,0 +1,45 @@
+﻿@page "/division-component"
+
+<h5>@Example.Text</h5>
+
+<h6>Informe dois valores para obter o resultado da divisão:</h6>
+<br />
+
+<label name="value_1">Valor 1:</label>
+<input type="number" @bind-value="value1" name="value_1" required="required" class="custom-input" />
+<br />
+
+<label name="value_2">Valor 2:</label>
+<input type="number" @bind-value="value2" name="value_2" required="required" class="custom-input" />
+<br />
+<br />
+
+<div>
+    <p>@result</p>
+</div>
+
+<button class="btn btn-info" @onclick="CalculateDivision">Mostrar Resultado</button>
+
+<style>
+    .custom-input {
+        background-color: lightblue;
+        height: 30px;
+        width: 70px;
+    }
+</style>
+
+@code {
+
+    [Parameter]
+    public Example Example { get; set; } = new Example();
+    public double value1 { get; set; }
+    public double value2 { get; set; }
+    public double result { get; set; }
+
+
+    private void CalculateDivision()
+    {
+        result = value1 / value2;
+    }
+}
+

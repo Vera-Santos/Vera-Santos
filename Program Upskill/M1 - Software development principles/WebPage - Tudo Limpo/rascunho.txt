@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<Html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Limpezas e companhia</title>
+    </head>
+    <body>
+        <header>
+            <span>
+                    <img src="1.jpg" alt="Tudo Limpinho" width="80" height="60">
+                </span>
+                <span>
+                    <nav>
+                        Inicio
+                        Serviços
+                        Preçario
+                        Contactos
+                    </nav>
+                </span>
+                
+            </section>
+        </header>
+        <article>
+
+        </article>
+        <footer>
+            <span>
+                Mapa do Site
+            </span>
+            <span>
+                <h3>
+                    Contactos
+                </h3>
+
+                <ul>
+                    <li>Morada - Rua ....</li>
+                    <li>Telefone - 919 999 999</li>
+                    <li>E-Mail - tudolimpo@gmail.com</li>
+                </ul>
+            </span>
+        </footer>
+    </body>
+</Html>

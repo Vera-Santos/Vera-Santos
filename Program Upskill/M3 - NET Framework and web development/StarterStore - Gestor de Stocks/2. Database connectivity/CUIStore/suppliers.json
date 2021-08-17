@@ -1,0 +1,62 @@
+[
+    {
+        "id": "1",
+        "companyName": "Exotic Liquids",
+        "contactName": "Charlotte Cooper",
+        "contactTitle": "Purchasing Manager",
+        "address": "49 Gilbert St.",
+        "city": "London",
+        "postalCode": "EC1 4SD",
+        "country": "UK",
+        "phone": "(171) 555-2222",
+        "fax": ""
+    },
+    {
+        "id": "2",
+        "companyName": "New Orleans Cajun Delights",
+        "contactName": "Shelley Burke",
+        "contactTitle": "Order Administrator",
+        "address": "P.O. Box 78934",
+        "city": "New Orleans",
+        "postalCode": "70117",
+        "country": "USA",
+        "phone": "(100) 555-4822",
+        "fax": ""
+    },
+    {
+        "id": "3",
+        "companyName": "Grandma Kelly's Homestead",
+        "contactName": "Regina Murphy",
+        "contactTitle": "Sales Representative",
+        "address": "707 Oxford Rd.",
+        "city": "Ann Arbor",
+        "postalCode": "48104",
+        "country": "USA",
+        "phone": "(313) 555-5735",
+        "fax": "(313) 555-3349"
+    },
+    {
+        "id": "4",
+        "companyName": "Tokyo Traders",
+        "contactName": "Yoshi Nagase",
+        "contactTitle": "Marketing Manager",
+        "address": "9-8 Sekimai Musashino-shi",
+        "city": "Tokyo",
+        "postalCode": "100",
+        "country": "Japan",
+        "phone": "(03) 3555-5011",
+        "fax": ""
+    },
+    {
+        "id": "5",
+        "companyName": "Tokyo Traders",
+        "contactName": "Antonio del Valle Saavedra",
+        "contactTitle": "Export Administrator",
+        "address": "Calle del Rosal 4",
+        "city": "Oviedo",
+        "postalCode": "33007",
+        "country": "Spain",
+        "phone": "(98) 598 76 54",
+        "fax": ""
+    }
+]

@@ -1,0 +1,221 @@
+﻿@page "/SubjectPage/{id}"
+
+@inject HttpClient Http
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject NavigationManager navigationManager
+
+@if (SubjectsForBreadCrumbs == null)
+{
+    
+}
+else
+{
+    <div class="breadcrumb">
+        <nav arial-label="breadcrumb">
+            <ol class="breadcrumb">
+                @foreach (var item in SubjectsForBreadCrumbs)
+                {
+                    <li class="breadcrumb-item active" aria-current="page"></li>
+                    @if (item == SubjectsForBreadCrumbs.Last())
+                    {
+                        <li class="breadcrumb-item"><a href="#">Início</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">@item.CycleGradeCourse.Cycle</li>
+                        <li class="breadcrumb-item active" aria-current="page">@item.CycleGradeCourse.Grade</li>
+                        <li class="breadcrumb-item active" aria-current="page">@item.CycleGradeCourse.Course</li>
+                    }
+                }
+            </ol>
+        </nav>
+    </div>
+}
+
+<h2 class="title">Conteúdos</h2>
+<br />
+
+<div class="cont">
+    @if (Subjects == null)
+    {
+    }
+    else
+    {
+        <div class="w3-container">
+            @foreach (var subject in Subjects)
+            {
+            <div class="abc">
+                <h6 class="subjectName">@subject.SubjectName</h6>
+                @if (identityRole.Name == "Admin")
+                {
+                    <a class="btn btn-secondary" href="edit-Subject/@subject.SubjectID">Editar</a>
+                }    
+                <a class="btn btn-primary" href="/Lets/@subject.SubjectID">
+                    <img class="logo" src="images/Lets_blue.png" />
+                </a>
+            </div>
+            }
+        </div>
+        <a class="reportedProblem" href="/ReportedProblemPage">Reportar um problema</a>
+    }
+</div>
+
+<style>
+    .title {
+        color: #0056b3;
+        text-align: center;
+    }
+
+    .cont {
+        padding: 0 5%;
+    }
+
+    
+
+    .p-3 {
+        font-family: Poppins;
+        color: white;
+    }
+
+    .w3-container {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+        .w3-container .abc {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f1f1f1;
+            margin: 1%;
+            text-align: center;
+            font-size: 20px;
+            height: 150px;
+            width: 90%;
+            justify-content: center;
+            word-wrap: break-word;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            position: sticky;
+            text-decoration: none;
+            border-radius: 10px;
+            font-family: Poppins;
+            background-color: #F1D072;
+            padding: 2%;
+            z-index: 0;
+            color: #0056b3
+        }
+
+    .w3-container .abc .subjectName {
+        position: initial;
+    }
+            #linkLogo {
+                position: initial;
+            }
+        .w3-container .abc:hover {
+            overflow: visible;
+            word-break: break-word;
+        }
+    .w3-container .abc #edit{
+        position:initial;
+        margin:2px;
+    }
+    .cont .reportedProblem {
+        float: initial;
+    }
+
+    @@font-face {
+        font-family: Poppins;
+        src: url("Poppins-Regular.ttf");
+    }
+
+    @@media screen and (min-width: 400px) {
+        .w3-container .abc {
+            height: 300px;
+            width: 20%;
+        }
+    }
+
+    /*Estilos para os breadcrumbs*/
+    .breadcrumb {
+        display: flex;
+        padding: .50rem .50rem;
+        margin-bottom: 0rem;
+        background-color: white;
+    }
+
+    .breadcrumb-item.active {
+        color: #0056b3;
+    }
+
+    .breadcrumb-item a {
+        color: #0056b3;
+    }
+
+    /*Estilos para button Lets*/
+    a.btn {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: transparent;
+        width: 50px;
+        height: 50px;
+    }
+
+        a.btn.btn-primary {
+            display: block;
+            width: 100px;
+            height: 45px;
+            background-color: transparent;
+            border-color: #0056b3;
+            top: 240px;
+            position: absolute;
+        }
+
+            a.btn.btn-primary:hover {
+                background-color: #f2c43f;
+                border-color: #003f82;
+            }
+
+    img.logo {
+        width: 50px;
+        height: 30px;
+    }
+
+    /*Estilos para button Editar*/
+    a.btn.btn-secondary {
+        width: 84px;
+        height: 38px;
+        top: 190px;
+        position: absolute;
+        background-color: #6c757d;
+        border-color: #6c757d;
+    }
+
+        a.btn.btn-secondary:hover {
+            color: #fff;
+            background-color: #5a6268;
+            border-color: #545b62;
+        }
+
+    /*Estilos para SubjectName*/
+    h6.subjectName {
+        justify-content: center;
+        padding: 5%;
+        top: 80px;
+        position: absolute;
+    }
+
+    /*Estilo para problemas reportados*/
+    .reportedProblem {
+        color: #0056b3;
+        float: right;
+        padding-bottom: 1%;
+        padding-top: 1%;
+        margin-right: 7.5%;
+    }
+</style>
+
+
+

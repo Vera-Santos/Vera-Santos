@@ -1,0 +1,73 @@
+﻿@using Microsoft.AspNetCore.Identity;
+@using Microsoft.AspNetCore.Components.Authorization;
+@inject HttpClient Http
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@if (identityRole == null)
+{
+
+}
+else
+{
+    <div class="exampleContent">
+
+        @switch (Example.ExampleID)
+        {
+            case 1:
+                <div id="1">
+                    <PlaneFiguresComponent Example="Example"></PlaneFiguresComponent> <br /><br />
+                </div>
+                break;
+            case 2:
+                <div id="2">
+                    <TrianglesComponent Example="Example"></TrianglesComponent> <br /><br />
+                </div>
+                break;
+
+            case 3:
+                <div id="3">
+                    <DivisionComponent Example="Example"></DivisionComponent> <br /><br />
+                </div>
+                break;
+
+            default:
+                <div>
+                    <p>Exemplo indisponível!</p>
+                </div>
+                break;
+        }
+        @if (identityRole.Name == "Admin")
+        {
+            <a class="btn btn-secondary" href="edit-example/@Example.ExampleID">Editar</a>
+        }
+    </div>
+}
+<style>
+
+    @@media screen and (min-width: 400px) {
+        .exampleContent {
+            padding: 2%;
+        }
+    }
+</style>
+
+@code{
+
+    public IdentityRole<string> identityRole { get; set; } = new IdentityRole<string>();
+
+    public ApplicationUser User { get; set; } = new ApplicationUser();
+
+    protected override async Task OnInitializedAsync()
+    {
+        await Task.Delay(5000);
+        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+
+
+        User.Id = user.FindFirst(c => c.Type == "sub")?.Value;
+
+        if (User.Id != null)
+        {
+            identityRole = await Http.GetFromJsonAsync<IdentityRole<string>>($"/api/ApplicationUser/GetRole/{User.Id}");
+        }
+    }
+}

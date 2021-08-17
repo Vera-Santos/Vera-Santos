@@ -1,0 +1,33 @@
+  div {
+    background-color: #A9E2F3;
+    color: white;
+    border: 3px solid white;
+    margin: 20px;
+    padding: 20px;
+}
+
+img.Logo {
+    width: 15em;
+    align-self: start;
+    display: inline; 
+}
+
+span.Historia{
+    background-image: 2.jpg;
+}
+
+button {
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-size-adjust:auto ;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px 2px;
+    cursor: pointer;
+    background-color: #A9E2F3;
+    border: 3px solid #f8f8f8;
+    width: 100%;  
+}

@@ -1,0 +1,24 @@
+﻿@page "/edit-Subject/{id}"
+
+@using BlazorLets.Shared.Models
+
+@inject HttpClient Http
+@inject NavigationManager NavigationManager
+
+<h3>Editar Conteúdo</h3>
+
+<EditForm Model="@Subject" OnValidSubmit="@Edit">
+    <div class="form-group">
+        <label for="text">Texto:</label>
+        <div>
+            <InputText id="text" @bind-Value="@Subject.SubjectName" class="form-control"></InputText>
+        </div>
+    </div>
+    <div>
+        <button type="submit" class="btn btn-success">Guardar</button>
+        <button type="button" class="btn btn-secondary" @onclick="GoBack">Voltar</button>
+    </div>
+</EditForm>
+
+
+

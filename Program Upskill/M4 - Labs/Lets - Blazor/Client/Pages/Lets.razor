@@ -1,0 +1,256 @@
+﻿@page "/Lets/{id}"
+
+@inject HttpClient Http
+@inject NavigationManager NavigationManager
+
+@if (SubjectsForBreadCrumbs == null)
+{
+   
+}
+else
+{
+    <nav arial-label="breadcrumb">
+        <ol class="breadcrumb">
+            @foreach (var item in SubjectsForBreadCrumbs)
+            {
+                <li class="breadcrumb-item active" aria-current="page"></li>
+                @if (item == SubjectsForBreadCrumbs.Last())
+                {
+                    <li class="breadcrumb-item"><a href="#">Início</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">@cyclegradecourse.Cycle</li>
+                    <li class="breadcrumb-item active" aria-current="page">@cyclegradecourse.Grade</li>
+                    <li class="breadcrumb-item active" aria-current="page"><a href="/SubjectPage/24">@cyclegradecourse.Course</a></li>
+                }
+            }
+        </ol>
+    </nav>
+}
+
+<div class="cont">
+    @if (subject == null && cyclegradecourse == null)
+    {
+        
+    }
+    else
+    {
+        <div class="container-fluid">
+            <div class="secondHeader">
+                <h3>@subject.SubjectName</h3>
+            </div>
+        </div>
+        <div>
+            <div type="button" class="collapsible" @onclick="e => onClick(e, learn)">
+                Leitura
+            </div>
+            <div class="contentContent" id="learnCollapse">
+                @if (obj == null)
+                {
+                    Console.WriteLine("ola");
+                }
+                else
+                {
+                    <LearnPage Learn="obj"></LearnPage>
+                    <a class="reportedProblem" href="/ReportedProblemPage">Reportar um problema</a>
+                }
+            </div>
+        </div>
+        <div>
+            <button type="button" class="collapsible" @onclick="e=>onClick(e, example)">Exemplo</button>
+            <div class="contentContent" id="exampleCollapse">
+
+                @if (objExample == null)
+                {
+                    <div>
+                        <p>Conteúdo inexistente!</p>
+                    </div>
+                }
+                else
+                {
+                    <ExamplePage Example="objExample"></ExamplePage>
+                    <a class="reportedProblem" href="/ReportedProblemPage">Reportar um problema</a>
+                }
+
+            </div>
+        </div>
+        <div>
+            <button type="button" class="collapsible" @onclick="e=>onClick(e, test)">Teste</button>
+            <div class="contentContent" id="testCollapse">
+                @if (objTest == null)
+                {
+                    <div>
+                        <p>Conteúdo inexistente!</p>
+                    </div>
+                }
+                else
+                {
+                    <TestPage Test="objTest"></TestPage>
+                    <a class="reportedProblem" href="/ReportedProblemPage">Reportar um problema</a>
+                }
+            </div>
+        </div>
+        <div>
+            <button type="button" class="collapsible" @onclick="e=>onClick(e, solution)">Solução</button>
+            <div class="contentContent" id="solutionCollapse">
+
+                @if (objTest == null)
+                {
+                    <div>
+                        <p>Conteúdo inexistente!</p>
+                    </div>
+                }
+                else
+                {
+
+
+                    <TestSolutionPage TestSolution="objTest"></TestSolutionPage>
+                    <a class="reportedProblem" href="/ReportedProblemPage">Reportar um problema</a>
+                }
+            </div>
+
+        </div>
+    }
+</div>
+
+<style>
+    #learnCollapse {
+        display: @collapseValues["learn"];
+        transition: max-height 0.2s ease-out;
+    }
+    #exampleCollapse {
+        display: @collapseValues["example"];
+        transition: max-height 0.2s ease-out;
+    }
+     #testCollapse {
+        display: @collapseValues["test"];
+        transition: max-height 0.2s ease-out;
+    }
+     #solutionCollapse {
+        display: @collapseValues["solution"];
+        transition: max-height 0.2s ease-out;
+    }
+
+    
+    /*.cont2{
+        height: 100%;
+    }
+    .collapsible {
+        background-color: #57a6c5;
+        color: #ffffff;
+        cursor: pointer;
+        width: 100%;
+        border: none;
+        text-align: left;
+        display:inline-block;
+        height: 20%;
+    }
+    .collapsible:hover {
+        background-color: #8ad9f8;
+    }*/
+    .cont {
+        padding:0 10%;
+    }
+
+    .container-fluid{
+        text-align:center;
+    }
+
+    .header {
+        padding: 3%;
+        font-family: Poppins;
+        color: white;
+        font-size: 20px;
+    }
+
+    .secondHeader {
+        padding: 1%;
+        padding-bottom: 10%;
+        font-family: Poppins;
+        color: #0056b3;
+        font-size: 20px;
+    }
+
+    .contentContent {
+        /*padding-left: 2%;*/
+        border-left:2px solid;
+       /* margin: 10px;*/
+    }
+
+    .collapsible {
+        color: #ffffff;
+        cursor: pointer;
+        width: 100%;
+        padding: 15px 10px;
+        margin: 20px 0;
+        /*border: 2px solid;*/
+        cursor: pointer;
+        border-radius: 10px;
+        display: flex;
+        margin: 10px 0;
+        align-items: center;
+        color: white;
+        background-color: #F1D072;
+        font-weight: bold;
+        margin-bottom: 20px;
+        justify-content: center;
+    }
+
+    .button {
+        padding-left: 10px;
+        background-color: none;
+    }
+
+    @@font-face {
+        font-family: Poppins;
+        src: url("Poppins-Regular.ttf");
+    }
+
+    @@media screen and (min-width: 400px) {
+        .cont {
+            padding: 0;
+        }
+        .header {
+            padding: 2%;
+            font-size: 2em;
+            color: #0056b3;
+        }
+
+        .secondHeader {
+            padding: 1%;
+            padding-bottom: 2%;
+            font-size: 2em;
+            color: #0056b3;
+        }
+
+        .collapsible {
+            font-size: x-large;
+            color: #0056b3;
+            font-weight: normal;
+        }
+
+    }
+
+    /*Estilos para os breadcrumbs*/
+    .breadcrumb {
+        display: flex;
+        padding: .50rem .50rem;
+        margin-bottom: 0rem;
+        background-color: white;
+    }
+
+    .breadcrumb-item.active {
+        color: #0056b3;
+    }
+
+    .breadcrumb-item a {
+        color: #0056b3;
+    }
+
+    /*Estilo para problemas reportados*/
+    .reportedProblem {
+        color: #0056b3;
+        float: right;
+        padding-bottom: 1%;
+    }
+</style>
+
+

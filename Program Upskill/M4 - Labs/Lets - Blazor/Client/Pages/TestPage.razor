@@ -1,0 +1,112 @@
+﻿@using BlazorLets.Shared.Models
+@using Microsoft.AspNetCore.Components.WebAssembly.Authentication
+
+@inject HttpClient Http
+@inject NavigationManager navigationManager
+@inject AuthenticationStateProvider AuthenticationStateProvider
+
+
+<div class="cont">
+
+    @if (Test == null)
+    {
+        <div class="spinner"></div>
+    }
+    else
+    {
+        <div class="w1-container">
+            @foreach (var test in Test)
+            {
+                @if (User.Id == null)
+                {
+                    <a @onclick="e => onClick2(e, test.TestID)">Teste @test.TestID</a>
+                     <div class="modalTitle">
+                        <Modal Title="Pretende guardar os seus resultados?" IsOpened="IsOpened">
+                            <ModalBody>
+                                <h5>Caso pretenda guardar os resultados do seu percurso, efetue o login antes de realizar o teste. Boa sorte!</h5>
+                            </ModalBody>
+                            <ModalFooter>
+                                <button class="btn btn-primary" @onclick="@(() => navigationManager.NavigateTo("https://localhost:5001/Identity/Account/Login", true))">Sim, quero fazer Login!</button>
+                                <button class="btn btn-primary" @onclick="OpenCloseModal">Não, quero ir direto para o Teste!</button>
+                            </ModalFooter>
+                        </Modal>
+                    </div>
+                }
+                else
+                {
+                    <a @onclick="e => onClick(e, test.TestID)">Teste @test.TestID</a>
+                }
+                <br />
+            }
+        </div>
+        @if (clicked == 1)
+        {
+            <QuestionPage id="verifyTestId"></QuestionPage>
+        }
+    }
+</div>
+
+
+
+<style>
+.cont {
+    padding: 0 5%;
+    font-family: Poppins;
+}
+
+
+.w1-container {
+    display: @display;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    color: white;
+}
+
+.w1-container a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #F1D072;
+    margin: 1%;
+    text-align: center;
+    font-size: 17px;
+    height: 40px;
+    justify-content: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    position: sticky;
+    text-decoration: none;
+    border-radius: 10px;
+    font-family: Poppins;
+    background-color: #4A5A9F;
+    padding: 2%;
+    z-index: 1;
+    cursor: pointer;
+    width:100px;
+}
+
+.w1-container a:hover {
+    overflow: visible;
+    background-color: #F1D072;
+}
+
+@@font-face {
+    font-family: Poppins;
+    src: url("Poppins-Regular.ttf");
+}
+
+@@media screen and (min-width: 400px) {
+    .w1-container a {
+        height: 85px;
+        width: 23%;
+    }
+}
+
+.modalTitle{
+    color: darkslategray;
+}
+</style>
+

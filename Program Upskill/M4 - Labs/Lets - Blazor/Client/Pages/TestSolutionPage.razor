@@ -1,0 +1,82 @@
+﻿@inject HttpClient Http
+@inject NavigationManager navigationManager
+
+<div class="cont">
+    @if (TestSolution == null)
+    {
+        <div class="spinner"></div>
+    }
+    else
+    {
+        <div class="w2-container">
+            @foreach (var test in TestSolution)
+            {
+            <a  @onclick="e => onClick(e, test.TestID)"> Solução do Teste @test.TestID</a>
+            }
+        </div>
+        @if (clicked == 1)
+        {
+            <SolutionPage id="verifyId"></SolutionPage>
+        }
+    }
+</div>
+
+<style>
+.cont {
+    padding: 0 5%;
+    font-family: Poppins;
+}
+
+
+.w2-container {
+    display: @display;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    color: white;
+}
+
+.w2-container a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #F1D072;
+    margin: 1%;
+    text-align: center;
+    font-size: 17px;
+    height: 40px;
+    justify-content: center;
+    word-wrap: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    position: sticky;
+    text-decoration: none;
+    border-radius: 10px;
+    font-family: Poppins;
+    background-color: #4A5A9F;
+    padding: 2%;
+    z-index: 1;
+    cursor: pointer;
+            width:100px;
+}
+
+.w2-container a:hover {
+    overflow: visible;
+    background-color: #F1D072;
+}
+
+@@font-face {
+    font-family: Poppins;
+    src: url("Poppins-Regular.ttf");
+}
+
+@@media screen and (min-width: 400px) {
+    .w2-container a {
+        height: 85px;
+        width: 23%;
+    }
+}
+</style>
+

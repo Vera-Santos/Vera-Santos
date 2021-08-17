@@ -1,0 +1,84 @@
+@model Order
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+        <li class="breadcrumb-item"><a asp-area="" asp-controller="Order" asp-action="Index">Order</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Details</li>
+    </ol>
+</nav>
+<h2>Order's Detail</h2>
+
+
+<div class="table-responsive">
+    <table class="table">
+        <tbody>
+            <tr>
+                <td style="font-weight: bold"> @Html.DisplayNameFor(model => model.OrderID) </td>
+                <td class="text-left"> @Html.DisplayFor(model => model.OrderID) </td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold"> @Html.DisplayNameFor(model => model.CustomerID) </td>
+                <td> @Html.DisplayFor(model => model.CustomerID)
+            </tr>
+            <tr>
+                <td style="font-weight: bold"> @Html.DisplayNameFor(model => model.EmployeeID) </td>
+                <td> @Html.DisplayFor(model => model.EmployeeID)
+            </tr>
+            <tr>
+                <td style="font-weight: bold"> @Html.DisplayNameFor(model => model.OrderDate) </td>
+                <td class="text-left"> @Html.DisplayFor(model => model.OrderDate) </td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold"> @Html.DisplayNameFor(model => model.RequiredDate) </td>
+                <td> @Html.DisplayFor(model => model.RequiredDate)
+            </tr>
+            <tr>
+                <td style="font-weight: bold"> @Html.DisplayNameFor(model => model.ShippedDate) </td>
+                <td> @Html.DisplayFor(model => model.ShippedDate)
+            </tr>
+            <tr>
+                <td style="font-weight: bold"> @Html.DisplayNameFor(model => model.ShipVia) </td>
+                <td class="text-left"> @Html.DisplayFor(model => model.ShipVia) </td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold"> @Html.DisplayNameFor(model => model.Freight) </td>
+                <td> @Html.DisplayFor(model => model.Freight)
+            </tr>
+            <tr>
+                <td style="font-weight: bold"> @Html.DisplayNameFor(model => model.ShipName) </td>
+                <td> @Html.DisplayFor(model => model.ShipName)
+            </tr>
+            <tr>
+                <td style="font-weight: bold"> @Html.DisplayNameFor(model => model.ShipAddress) </td>
+                <td class="text-left"> @Html.DisplayFor(model => model.ShipAddress) </td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold"> @Html.DisplayNameFor(model => model.ShipCity) </td>
+                <td> @Html.DisplayFor(model => model.ShipCity)
+            </tr>
+            <tr>
+                <td style="font-weight: bold"> @Html.DisplayNameFor(model => model.ShipRegion) </td>
+                <td> @Html.DisplayFor(model => model.ShipRegion)
+            </tr>
+            <tr>
+                <td style="font-weight: bold"> @Html.DisplayNameFor(model => model.ShipPostalCode) </td>
+                <td class="text-left"> @Html.DisplayFor(model => model.ShipPostalCode) </td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold"> @Html.DisplayNameFor(model => model.ShipCountry) </td>
+                <td> @Html.DisplayFor(model => model.ShipCountry)
+            </tr>
+        </tbody>
+    </table>
+</div>
+<br>
+<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <button style="color:lightgrey" class="btn-lg" type="button">
+        <a style="color:#FF7F50" asp-area="" asp-controller="Order" asp-action="Index">Back to List</a>
+    </button>
+</div>

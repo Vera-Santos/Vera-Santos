@@ -1,0 +1,241 @@
+﻿@inherits LayoutComponentBase
+
+<div class="page">
+
+    <div class="main" id="well">
+    <Spinner></Spinner>
+
+    <div class="main" style="height:100%;">
+        @*<div class="top-row px-4 auth">*@
+        <NavBar2></NavBar2>
+
+        @*</div>*@
+
+        <div class="content" id="body">
+            <div class="main_content">
+                @Body
+
+            </div>
+
+            <footer class="footer">
+                <ul class="footer_legal">
+                    <li class="footer_legal_item"> <a href="/equipa" class="footer_legal_link"> A equipa </a></li>
+                    @*<li class="footer_legal_item"> <a href="/contacts" class="footer_legal_link">Contactos</a></li>*@
+                    <li class="footer_legal_item"> <a href="/termos" class="footer_legal_link">Termos e condições</a></li>
+                    <li class="footer_legal_item"> <a href="/privacidade" class="footer_legal_link">Política de privacidade</a></li>
+                    <li class="footer_legal_item"> <a href="/cookies" class="footer_legal_link">Política de cookies</a></li>
+                    <li class="footer_legal_item"> <a href="/mapa-do-site" class="footer_legal_link"> Mapa do Site</a></li>
+                    @*<li class="footer_legal_item"> <a href="/accessibility" class="footer_legal_link">Accessibility</a></li>*@
+                    <li class="footer_legal_item"> <span class="footer-legal_copyright"> &copy; LETS Edutech 2021 </span> </li>
+                </ul>
+                <div class="social-media">
+                    <ul>
+                        <li><a href="https://www.facebook.com/lets.edutech"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="https://twitter.com/Lets94689306"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href=""><i class="fa fa-instagram"></i></a></li>
+                        <li><a href=""><i class="fa fa-youtube"></i></a></li>
+                        <li><a href=""><i class="fa fa-linkedin"></i></a></li>
+                    </ul>
+                </div>
+
+                    @*<div class="newsletter">
+                <div class="nwsltr">Já conheces a nossa newsletter?</div>
+                <button class="button">Subscreve</button>
+            </div>*@
+
+            </footer>
+        </div>
+    </div>
+</div>
+</div>
+
+<style>
+    /* phone */
+    #well{
+        height:100%;
+    }
+    .page {
+        position: relative;
+        height:100%;
+    }
+    .main {
+        height:100%;
+    }
+
+    .content {
+        height:100%;
+    }
+
+    .main_content {
+        padding: 0 10%;
+        height: auto;
+        min-height: 89.4%;
+    }
+
+    .footer {
+        background-color: #37B187;
+        bottom: 0;
+        height: 12.2%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        height:auto;
+    }
+      
+    .footer_legal {
+        justify-content:center;
+    }
+
+    .footer_legal li {
+        display: inline-block;
+        list-style: none;
+        margin: 1%;
+        padding: 0 2%;
+        color: whitesmoke;
+        font-family: 'Helvetica Neue', sans-serif;
+        font-size: 12pt;
+    }
+
+    .newsletter {
+        text-align:center;
+        color:white;
+        padding: 2vh;
+    }
+
+    .footer button {
+        align-items: center;
+        background-color: white;
+        color: black;
+        border-radius: 5px;
+        width: 50%;
+        min-width: 100px;
+        margin-top: 10px;
+        padding: 5px;
+        transition: .5s;
+        box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.5);
+    }
+
+    .footer button:hover {
+        color:white;
+        background-color: #3b5999;
+        transform: rotate(0deg) skew(0deg) translate(0, -10px);
+    }
+
+    .social-media {
+        padding: 1%;
+        margin: 0;
+       /* display: flex;
+        float: right;*/
+    }
+
+    .social-media li {        
+        display: inline-block;
+        /*margin: 1%;
+        margin-right: 2%;*/
+        list-style: none;
+        margin: 0 2vw;
+    }
+
+    .social-media ul li .fa {
+        color: #000000;
+        font-size: 25px;
+        line-height: 50px;
+        transition: .5s;
+    }
+    .social-media ul li:hover .fa {
+        color: #ffffff;
+    }
+
+    .social-media ul li a {
+        position: relative;
+        display: block;
+        width: 50px;
+        height: 50px;
+        border-radius: 5px;
+        background-color: white;
+        text-align: center;
+        transition: 0.5s;
+        transform: translate(0,0px);
+        box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.5);
+    }
+
+    .social-media ul li a:hover {
+        transform: rotate(0deg) skew(0deg) translate(0, -10px);
+    }
+
+    .social-media ul li:nth-child(1) a:hover {
+        background-color: #3b5999;
+    }
+
+    .social-media ul li:nth-child(2) a:hover {
+        background-color: #55acee;
+    }
+
+    .social-media ul li:nth-child(3) a:hover {
+        background-color: #e4405f;
+    }
+
+    .social-media ul li:nth-child(4) a:hover {
+        background-color: #cd201f;
+    }
+
+    .social-media ul li:nth-child(5) a:hover {
+        background-color: #0077B5;
+    }
+  
+    #body {
+        background-color: white;
+        height:90%;
+    }
+
+    
+
+/* small screens */
+    @@media screen and (max-width: 400px) {
+        #well {
+            height: 100%;
+        }
+        #body {
+            height:90%;
+        }
+
+        .footer{
+            display:flex;
+            height:auto;
+        }
+
+        .footer .footer_legal {
+            display: none;
+        }
+
+        ..social-media ul{
+            display:block;
+        }
+
+        .social-media {
+            display: list-item;
+            justify-content: center;
+            text-align: center;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .footer_legal {
+            display: list-item;
+            justify-content: center;
+            text-align: center;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .main_content{
+            height:auto;
+            min-height:88.2%;
+            padding:0;
+        }
+    }
+
+</style>
+

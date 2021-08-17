@@ -1,0 +1,86 @@
+@page "/administrator"
+@inject HttpClient http
+@inject IJSRuntime js
+
+<h3 class="title-users">Gestão dos Utilizadores</h3>
+
+<br>
+@if (Users == null)
+{
+    <text>Loading...</text>
+}
+else
+{
+    <div class="container-table">
+
+        <div class="form-inline">
+            <label class="sr-only" for="filter-name">Filtro</label>
+            <input type="text" class="form-control mb-2 mr-sm-2"@bind="nameFilter" placeholder="Filtrar pelo nome" />
+
+            <button type="button" class="btn btn-success mr-sm-2 mb-2" @onclick="Filter">Filtrar</button>
+            <button type="button" class="btn btn-outline-success mb-2" @onclick="Clear">Limpar</button>
+        </div>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>E-mail</th>
+                    <th>Data de Aniversário</th>
+                    <th>Telefone</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (ApplicationUser user in Users)
+                {
+                    <tr>
+                        <td>@user.Name</td>
+                        <td>@user.Email</td>
+                        <td>@user.BirthDate.ToString("dd-MM-yyyy")</td>
+                        <td>@user.PhoneNumber</td>
+                        <td>
+                            <button class="btn btn-danger" @onclick="@(() => Delete(user.Id))">Excluir</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+
+    <div class="pagination-container">
+        <Pagination TotaPagesQuantity="totalPageQuantity" CurrentPage="currentPage" SelectedPage="SelectedPage">
+        </Pagination>
+    </div>
+}
+
+<style>
+    .title-users {
+        font-weight: bold;
+        width: 90%;
+        margin: auto;
+        margin-top: 50px;
+    }
+
+    .form-inline {
+        justify-content: flex-end;
+    }
+
+    .table {
+        margin-top: 1rem;
+    }
+
+    .container-table {
+        width: 90%;
+        margin: auto;
+    }
+
+    .pagination-container {
+        width: 90%;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        margin-top: 2rem;
+    }
+</style>

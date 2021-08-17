@@ -1,0 +1,78 @@
+﻿@page "/edit-question/{id}"
+
+@using BlazorLets.Shared.Models
+@using MudBlazor;
+
+@inject HttpClient Http
+@inject NavigationManager NavigationManager
+
+
+<div class="pergunta">
+    <h3>Editar Pergunta</h3>
+    <EditForm Model="@Question" OnValidSubmit="@Edit">
+
+        <div class="form-group">
+            <label for="QuestionText">Pergunta:</label>
+            <InputText id="QuestionText" @bind-Value="@Question.QuestionText" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label for="SolutionText">Solução:</label>
+            <InputText id="SolutionText" @bind-Value="@Question.SolutionText" class="form-control" />
+        </div>
+
+        <div class="form-control-file">
+            <label style="box-shadow: 0 2px 7px #4caf50;
+        display: inline-flex;
+        width: 150px;
+        justify-content: space-around;
+        border-radius: 2em;
+        color: white;
+        border: 2px solid;
+        cursor: pointer;
+        align-items: center;
+        padding: 16px;
+        background-color: #4caf50;" for="fileInput">Upload<MudIcon Icon="@Icons.Filled.CloudUpload" /></label>
+
+            <InputFile id="fileInput" OnChange="UploadFile" hidden multiple />.
+
+        </div>
+
+        @if (Question.Image != null)
+        {
+            <div class="col-4">
+                <img style="width:300px; height: auto" class="center" src="@ConvertImageToDisplay(Question.Image)" />
+            </div>
+
+            <button type="submit" class="btn btn-danger" @onclick="RemoveImage">Remover Imagem</button><br /><br />
+        }
+
+
+        <button type="submit" class="btn btn-success">Guardar</button>
+        <button type="button" class="btn btn-secondary" @onclick="GoBack">Voltar</button>
+    </EditForm>
+</div>
+
+<style>
+    .pergunta {
+        padding: 0 5%;
+        align-items: center;
+        justify-content: center;
+        align-items: center;
+        
+    }
+
+    .form-group {
+        font-weight: bold;
+        font-size: 16px;
+      
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+    }
+</style>
+
+

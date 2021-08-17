@@ -1,0 +1,168 @@
+﻿@using System;
+@using System.Net.Http
+@using Microsoft.AspNetCore.Components.Authorization
+
+@inject HttpClient Http
+@inject HttpClient HttpClient
+@inject NavigationManager navigationManager
+@inject AuthenticationStateProvider AuthenticationStateProvider
+
+
+<EditForm Model=@Enrollments OnSubmit=@FormSubmitted>
+    @if (Questions == null)
+    {
+        <p><em>Loading...</em></p>
+    }
+    else
+    {
+        int TestIndex = 0;
+        @foreach (var question in Questions)
+        {
+            <section>
+                <div class="Teste">
+                    <h5>@question.QuestionText</h5>
+                    <div class="card mb-3" style="max-width: 2000px;">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <div class="card-body">
+                                    <div class="form-check">
+                                        <br />
+                                        @{
+                                            int answerIndex = 0;
+                                        }
+                                        @foreach (var answer in question.Answers)
+                                        {
+                                            int currentTestIndex = TestIndex;
+                                            <input class="form-check-input" type="radio" name="@TestIndex" value="@answerIndex" @onchange="@((eventArgs) => UpdateScore(Convert.ToInt32(eventArgs.Value), currentTestIndex))" /> @answer.AnswerText
+                                            <br />
+                                            answerIndex++;
+                                            <br />
+                                            <br />
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <img style="width:65%; height: auto" src="@ConvertImageToDisplay(question.Image)" /> 
+                            </div>
+                        </div>
+                    </div>
+                    @if (identityRole.Name == "Admin")
+                    {
+                    <a class="btn btn-secondary" href="edit-question/@question.QuestionID">Editar</a>  
+                    }
+                </div>
+            </section>
+            TestIndex++;
+        }
+        <br />
+    }
+<div>
+    <input type="submit" value="Submeter Teste" class="btn btn-primary" />
+</div>   
+</EditForm>
+
+<h4 class="Status">@Status</h4>
+<h3 class="Score">Nota do teste: @currentScore %</h3>
+
+<div class="v3-container">
+
+    <a class="buttonCard" href="/SolutionPage/@id"> Ver Solução</a>
+    @if (identityRole.Name == "User" || identityRole.Name == "Admin")
+    {
+        <a class="buttonCard" href="Path"> Consultar percurso</a>
+    }
+        <a class="buttonCard" @onclick="@(()=>navigationManager.NavigateTo($"Lets/{1}", true))">Voltar</a>
+    </div>
+
+
+<style>
+.Status {
+    display: @display;
+    text-align: center;
+    font-size: 20px;
+    color: #4A5A9F
+}
+.Score {
+    display: @display;
+    text-align: center;
+    font-size: 20px;
+    color: #4A5A9F
+}
+.Teste{
+    display:@display2;
+}
+.form-check {
+    font-size: 18px;
+    vertical-align: middle;
+}
+input[type=submit] {
+    display: @display2;
+    flex-direction: column;
+    color: white;
+    cursor: pointer;
+    border: none;
+    background-color: #F1D072;
+    margin: 1%;
+    text-align: center;
+    font-size: 20px;
+    justify-content: center;
+    background-color: #4A5A9F;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+input[type=submit]:hover {
+    background-color: #F1D072;
+}
+
+.v3-container {
+    display: @display3;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.v3-container a {
+    display: flex;
+    align-items: center;
+    background-color: #F1D072;
+    margin: 1%;
+    text-align: center;
+    font-size: 17px;
+    height: 10px;
+    justify-content: center;
+    word-wrap: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    position: sticky;
+    text-decoration: none;
+    border-radius: 10px;
+    font-family: Poppins;
+    background-color: #4A5A9F;
+    padding: 2%;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.v3-container a:hover {
+    overflow: visible;
+    
+    background-color: #F1D072;
+}
+
+@@font-face {
+    font-family: Poppins;
+    src: url("Poppins-Regular.ttf");
+}
+
+    @@media screen and (min-width: 400px) {
+        .v3-container a {
+            height: 80px;
+            width: 100%;
+        }
+    }
+</style>
+

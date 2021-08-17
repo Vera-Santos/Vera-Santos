@@ -1,0 +1,276 @@
+﻿@page "/plane-figures-component"
+
+<div class="custom-image">
+    <img style="width: 85%; height: auto;" src="@ConvertImageToDisplay(Example.Image)" />
+</div>
+
+<div class="example">
+    <div class="container-example">
+        <h6><strong>Calcule a Área de um Triângulo:</strong></h6><br />
+
+        <div class="container-input">
+            <label name="tri_base">Base:</label>
+            <input type="number" @bind-value="TriangleBase" name="tri_base" required="required" class="custom-input" />
+            <br />
+
+            <label name="tri_height">Altura:</label>
+            <input type="number" @bind-value="TriangleHeight" name="tri_height" required="required" class="custom-input" />
+        </div>
+        <br /><br />
+
+        <div>
+            <p>Área: @TriangleResult</p>
+        </div>
+
+        <button class="btn btn-info" @onclick="TriangleArea">Calcular</button>
+    </div>
+
+    <div class="container-example">
+        <h6><strong>Calcule a Área de um Quadrado:</strong></h6><br />
+
+        <div class="container-input">
+            <label name="squa_side">Lado:</label>
+            <input type="number" @bind-value="SquareSide" name="squa_side" required="required" class="custom-input" />
+        </div>
+        <br /><br />
+
+        <div>
+            <p>Área: @SquareResult</p>
+        </div>
+
+        <button class="btn btn-info" @onclick="SquareArea">Calcular</button>
+    </div>
+
+    <div class="container-example">
+        <h6><strong>Calcule a Área de um Retângulo:</strong></h6><br />
+
+        <div class="container-input">
+            <label name="recta_base">Base:</label>
+            <input type="number" @bind-value="RectangleBase" name="recta_base" required="required" class="custom-input" />
+            <br />
+
+            <label name="recta_height">Altura:</label>
+            <input type="number" @bind-value="RectangleHeight" name="recta_height" required="required" class="custom-input" />
+        </div>
+        <br /><br />
+
+        <div>
+            <p>Área: @RectangleResult</p>
+        </div>
+
+        <button class="btn btn-info" @onclick="RectangleArea">Calcular</button>
+    </div>
+
+    <div class="container-example">
+        <h6><strong>Calcule a Área de um Paralelogramo:</strong></h6><br />
+
+        <div class="container-input">
+            <label name="paralle_base">Base:</label>
+            <input type="number" @bind-value="ParallelogramBase" name="paralle_base" required="required" class="custom-input" />
+            <br />
+
+            <label name="paralle_height">Altura:</label>
+            <input type="number" @bind-value="ParallelogramHeight" name="paralle_height" required="required" class="custom-input" />
+        </div>
+        <br /><br />
+        <div>
+            <p>Área: @ParallelogramResult</p>
+        </div>
+
+        <button class="btn btn-info" @onclick="ParallelogramArea">Calcular</button>
+    </div>
+
+    <div class="container-example">
+        <h6><strong>Calcule a Área de um Trapézio:</strong></h6><br />
+
+        <div class="container-input">
+            <label name="smaller_base">Base Menor:</label>
+            <input type="number" @bind-value="SmallerTrapezoidBase" name="smaller_base" required="required" class="custom-input" />
+            <br />
+
+            <label name="larger_base">Base Maior:</label>
+            <input type="number" @bind-value="LargerTrapezoidBase" name="larger_base" required="required" class="custom-input" />
+            <br />
+
+            <label name="trapez_height">Altura:</label>
+            <input type="number" @bind-value="TrapezoidHeight" name="trapez_height" required="required" class="custom-input" />
+        </div>
+        <br /><br />
+
+        <div>
+            <p>Área: @TrapezoidResult</p>
+        </div>
+
+        <button class="btn btn-info" @onclick="TrapezoidArea">Calcular</button>
+    </div>
+
+    <div class="container-example">
+        <h6><strong>Calcule a Área de um Círculo:</strong></h6><br />
+
+        <div class="container-input">
+            <label name="radius">Raio:</label>
+            <input type="number" @bind-value="CircleRadius" name="radius" required="required" class="custom-input" />
+        </div>
+        <br /><br />
+
+        <div>
+            <p>Área: @CircleResult</p>
+        </div>
+
+        <button class="btn btn-info" @onclick="CircleArea">Calcular</button>
+    </div>
+
+</div>
+
+<style>
+    .example {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .container-example {
+        position: relative;
+        border: 1px solid #37B187;
+        padding: 10px;
+        border-radius: 4px;
+        height: auto;
+        margin: 30px;
+    }
+        .container-example button {
+            position: inherit;
+        }
+
+    .container-input {
+        width: 150px;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+
+    .custom-input {
+        background-color: lightblue;
+        height: 30px;
+        width: 70px;
+    }
+
+    .custom-image {
+        text-align: center;
+    }
+
+    @@media screen and (min-width: 400px) {
+        .example {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .container-example {
+            position: relative;
+            border: 1px solid #37B187;
+            padding: 10px;
+            border-radius: 4px;
+            width: 25%;
+            height: 400px;
+            margin: 30px;
+        }
+
+            .container-example button {
+                position: absolute;
+                bottom: 20px;
+            }
+
+        .container-input {
+            width: 150px;
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+        }
+
+        .custom-input {
+            background-color: lightblue;
+            height: 30px;
+            width: 70px;
+        }
+
+        .custom-image {
+            text-align: center;
+        }
+    }
+
+    
+</style>
+
+@code {
+
+    [Parameter]
+    public Example Example { get; set; } = new Example();
+
+    public double TriangleBase { get; set; }
+    public double TriangleHeight { get; set; }
+    public double TriangleResult { get; set; }
+
+    public double SquareSide { get; set; }
+    public double SquareResult { get; set; }
+
+    public double RectangleBase { get; set; }
+    public double RectangleHeight { get; set; }
+    public double RectangleResult { get; set; }
+
+    public double ParallelogramBase { get; set; }
+    public double ParallelogramHeight { get; set; }
+    public double ParallelogramResult { get; set; }
+
+    public double SmallerTrapezoidBase { get; set; }
+    public double LargerTrapezoidBase { get; set; }
+    public double TrapezoidHeight { get; set; }
+    public double TrapezoidResult { get; set; }
+
+    public double CircleRadius { get; set; }
+    public double CircleResult { get; set; }
+
+
+    string ConvertImageToDisplay(byte[] image)
+    {
+        if (image != null)
+        {
+            var imageData = Convert.ToBase64String(image);
+            var imageBase64 = string.Format("data:image/jpg;base64,{0}", imageData);
+            return imageBase64;
+        }
+        return "";
+    }
+
+
+    private void TriangleArea()
+    {
+        TriangleResult = 0.5 * (TriangleBase * TriangleHeight);
+    }
+
+    private void CircleArea()
+    {
+        var result = Math.PI * Math.Pow(CircleRadius, 2);
+        CircleResult = Math.Round(result, 2);
+    }
+
+    private void SquareArea()
+    {
+        SquareResult = Math.Pow(SquareSide, 2);
+    }
+
+    private void RectangleArea()
+    {
+        RectangleResult = RectangleBase * RectangleHeight;
+    }
+
+    private void ParallelogramArea()
+    {
+        ParallelogramResult = ParallelogramBase * ParallelogramHeight;
+    }
+
+    private void TrapezoidArea()
+    {
+        TrapezoidResult = ((SmallerTrapezoidBase + LargerTrapezoidBase) * TrapezoidHeight) / 2;
+    }
+
+}

@@ -1,0 +1,102 @@
+@model Employee
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+        <li class="breadcrumb-item"><a asp-area="" asp-controller="Employee" asp-action="Index">Employee</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Details</li>
+    </ol>
+</nav>
+<h2>Employee's Detail</h2>
+
+
+<div class="table-responsive">
+    <table class="table">
+        <tbody>
+            <tr>
+                <td style="font-weight: bold"> @Html.DisplayNameFor(model => model.EmployeeID) </td>
+                <td> @Html.DisplayFor(model => model.EmployeeID) </td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold"> @Html.DisplayNameFor(model => model.TitleOfCourtesy) </td>
+                <td> @Html.DisplayFor(model => model.TitleOfCourtesy) </td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold"> @Html.DisplayNameFor(model => model.FirstName) </td>
+                <td> @Html.DisplayFor(model => model.FirstName) </td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold"> @Html.DisplayNameFor(model => model.LastName) </td>
+                <td> @Html.DisplayFor(model => model.LastName) </td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold"> @Html.DisplayNameFor(model => model.Title) </td>
+                <td> @Html.DisplayFor(model => model.Title) </td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold"> @Html.DisplayNameFor(model => model.BirthDate) </td>
+                <td> @Html.DisplayFor(model => model.BirthDate) </td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold"> @Html.DisplayNameFor(model => model.HireDate) </td>
+                <td> @Html.DisplayFor(model => model.HireDate) </td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold"> @Html.DisplayNameFor(model => model.Address) </td>
+                <td> @Html.DisplayFor(model => model.Address) </td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold"> @Html.DisplayNameFor(model => model.City) </td>
+                <td> @Html.DisplayFor(model => model.City) </td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold"> @Html.DisplayNameFor(model => model.Region) </td>
+                <td> @Html.DisplayFor(model => model.Region) </td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold"> @Html.DisplayNameFor(model => model.PostalCode) </td>
+                <td> @Html.DisplayFor(model => model.PostalCode) </td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold"> @Html.DisplayNameFor(model => model.Country) </td>
+                <td> @Html.DisplayFor(model => model.Country) </td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold"> @Html.DisplayNameFor(model => model.HomePhone) </td>
+                <td> @Html.DisplayFor(model => model.HomePhone) </td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold"> @Html.DisplayNameFor(model => model.Extension) </td>
+                <td> @Html.DisplayFor(model => model.Extension) </td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold"> @Html.DisplayNameFor(model => model.Photo) </td>
+                <td> <img src="@String.Format("data:image/jpg;base64,{0}", Model.Base64String)" />  </td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold"> @Html.DisplayNameFor(model => model.Notes) </td>
+                <td> @Html.DisplayFor(model => model.Notes)
+            </tr>
+            <tr>
+                <td style="font-weight: bold"> @Html.DisplayNameFor(model => model.ReportsTo) </td>
+                <td> @Html.DisplayFor(model => model.ReportsTo)
+            </tr>
+            <tr>
+                <td style="font-weight: bold"> @Html.DisplayNameFor(model => model.PhotoPath) </td>
+                <td> @Html.DisplayFor(model => model.PhotoPath);
+            </tr>
+        </tbody>
+    </table>
+
+
+</div>
+<br>
+<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <button style="color:lightgrey" class="btn-lg" type="button">
+        <a style="color:#FF7F50" asp-area="" asp-controller="Employee" asp-action="Index">Back to List</a>
+    </button>   
+</div>

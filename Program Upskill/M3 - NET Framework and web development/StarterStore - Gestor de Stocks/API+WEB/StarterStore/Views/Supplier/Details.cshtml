@@ -1,0 +1,76 @@
+@model Supplier
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+        <li class="breadcrumb-item"><a asp-area="" asp-controller="Supplier" asp-action="Index">Supplier</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Details</li>
+    </ol>
+</nav>
+<h2>Supplier's Detail</h2>
+
+
+<div class="table-responsive">
+    <table class="table">
+        <tbody>
+            <tr>
+                <td style="font-weight: bold"> @Html.DisplayNameFor(model => model.SupplierID) </td>
+                <td class="text-left"> @Html.DisplayFor(model => model.SupplierID) </td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold"> @Html.DisplayNameFor(model => model.CompanyName) </td>
+                <td> @Html.DisplayFor(model => model.CompanyName)
+            </tr>
+            <tr>
+                <td style="font-weight: bold"> @Html.DisplayNameFor(model => model.ContactName) </td>
+                <td> @Html.DisplayFor(model => model.ContactName)
+            </tr>
+            <tr>
+                <td style="font-weight: bold"> @Html.DisplayNameFor(model => model.ContactTitle) </td>
+                <td class="text-left"> @Html.DisplayFor(model => model.ContactTitle) </td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold"> @Html.DisplayNameFor(model => model.Address) </td>
+                <td> @Html.DisplayFor(model => model.Address)
+            </tr>
+            <tr>
+                <td style="font-weight: bold"> @Html.DisplayNameFor(model => model.City) </td>
+                <td> @Html.DisplayFor(model => model.City)
+            </tr>
+            <tr>
+                <td style="font-weight: bold"> @Html.DisplayNameFor(model => model.Region) </td>
+                <td class="text-left"> @Html.DisplayFor(model => model.Region) </td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold"> @Html.DisplayNameFor(model => model.PostalCode) </td>
+                <td> @Html.DisplayFor(model => model.PostalCode)
+            </tr>
+            <tr>
+                <td style="font-weight: bold"> @Html.DisplayNameFor(model => model.Country) </td>
+                <td> @Html.DisplayFor(model => model.Country)
+            </tr>
+            <tr>
+                <td style="font-weight: bold"> @Html.DisplayNameFor(model => model.Phone) </td>
+                <td class="text-left"> @Html.DisplayFor(model => model.Phone) </td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold"> @Html.DisplayNameFor(model => model.Fax) </td>
+                <td> @Html.DisplayFor(model => model.Fax)
+            </tr>
+            <tr>
+                <td style="font-weight: bold"> @Html.DisplayNameFor(model => model.HomePage) </td>
+                <td> @Html.DisplayFor(model => model.HomePage)
+            </tr>
+        </tbody>
+    </table>
+</div>
+<br>
+<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <button style="color:lightgrey" class="btn-lg" type="button">
+        <a style="color:#FF7F50" asp-area="" asp-controller="Supplier" asp-action="Index">Back to List</a>
+    </button>
+</div>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Login</title>
+
+<style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+   * {
+      box-sizing: border-box;
+    }
+
+    .header-login {
+      text-align: center;
+    }
+
+/* style the container */
+    .container {
+      position: relative;
+      border-radius: 5px;
+      background-color: #f2f2f2;
+      padding: 20px 0 30px 0;
+      width: 30%;
+      margin-left: auto;
+      margin-right: auto;
+    } 
+
+/* style inputs and link buttons */
+   input,
+   .btn {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 4px;
+      margin: 5px 0;
+      opacity: 0.85;
+      display: inline-block;
+      font-size: 17px;
+      line-height: 20px;
+      text-decoration: none; /* remove underline from anchors */
+    }
+
+    input:hover,
+    .btn:hover {
+      opacity: 1;
+    }
+
+/* style the submit button */
+    input[type=submit] {
+      background-color: #4c74af;
+      color: white;
+      cursor: pointer;
+    }
+
+    input[type=submit]:hover {
+      background-color: #455aa0;
+    }
+
+/* bottom container */
+    .bottom-container {
+      text-align: center;
+      background-color: #666;
+      border-radius: 0px 0px 4px 4px;
+      width: 30%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .link{
+      color: white;
+      text-decoration: none;
+    }
+
+/* Responsive layout - when the screen is less than 650px wide, make the two columns stack on top of each other instead of next to each other */
+    @media screen and (max-width: 650px) {
+    .col {
+      width: 100%;
+      margin-top: 0;
+    }
+}
+
+</style>
+</head>
+<body>
+
+<h2 class="header-login">Welcome to Book Tinder</h2>
+
+<div class="container">
+  <form action="html_v3.html" method="POST" enctype="application/x-www-form-urlencoded">
+      <h2 class="header-login">Login</h2>
+      <div class="col">
+        <input type="text" name="username" placeholder="Username" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <input type="submit" value="Login">
+      </div>
+    </div>
+  </form>
+</div>
+
+<div class="bottom-container">
+    <div class="col">
+      <a class = "link" href="SignUp_v1.html" class="btn">Sign up</a>
+    </div><br/>
+    <div class="col">
+      <a class = "link" href="ForgotPassword_v1.html" class="btn">Forgot password?</a>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

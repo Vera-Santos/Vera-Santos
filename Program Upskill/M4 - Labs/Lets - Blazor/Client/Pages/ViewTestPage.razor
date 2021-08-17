@@ -1,0 +1,62 @@
+﻿@page "/ViewTestPage/{Id:int}"
+
+@inject HttpClient Http
+@inject HttpClient HttpClient
+@inject NavigationManager navigationManager
+@inject AuthenticationStateProvider AuthenticationStateProvider
+
+@if (Enrollments == null)
+{
+    <p><em>Ainda não realizou nenhum teste!</em></p>
+}
+else
+{
+    @foreach (var questions in Enrollments.Test.Questions)
+    {
+        <section>
+            <div class="TestView">
+                @questions.QuestionText
+                <div class="card mb-3" style="max-width: 2000px;">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <div class="card-body">
+                                @foreach (var answer in questions.Answers)
+                                { 
+                                <ul>
+                                    <li>
+                                        @if (questions.AnswerKey == count)
+                                        {
+                                        <span style="color: #37B187;"> - @answer.AnswerText</span>
+                                            <br />
+                                             @@Count();
+                                        }
+                                        else
+                                        {
+                                            <span> - @answer.AnswerText</span>
+                                            <br />
+                                            @@Count();
+                                        }
+                                    </li>
+                                    <br />
+                                </ul>
+                                }
+                            
+                                <br />
+                                <strong>Resposta:</strong>
+                                <br />
+                                <br />
+                                <div style="color: #37B187;">
+                                    @((MarkupString)questions.SolutionText)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <img style="width:300px; height: auto" src="@ConvertImageToDisplay(questions.Image)" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <br />
+    }
+}

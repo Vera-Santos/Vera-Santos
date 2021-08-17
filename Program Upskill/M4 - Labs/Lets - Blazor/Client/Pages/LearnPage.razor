@@ -1,0 +1,31 @@
+﻿@inject HttpClient Http
+@inject AuthenticationStateProvider AuthenticationStateProvider
+
+
+@if (identityRole == null)
+{
+    <div class="spinner"></div>
+}
+else
+{
+    <div class="learnContent">
+        <div style="text-align:center;"> <img style="width:100%; height: auto" src="@ConvertImageToDisplay(Learn.Image)" /></div>
+        <div class="texto">  @((MarkupString)Learn.Text)</div>
+
+        @if (identityRole.Name == "Admin")
+        {
+            <a class="btn btn-secondary" href="editar-Learn/@Learn.LearnID">Editar</a>
+        }
+    </div>
+}
+
+
+    <style>
+        .texto {
+            text-align: center;
+        }
+    </style>
+
+
+
+

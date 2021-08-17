@@ -1,0 +1,84 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">Home</li>
+    </ol>
+</nav>
+<div class="text-center">
+    <h1 class="display-4">Welcome at StarterStore</h1>
+</div>
+
+<div class="text-center">
+    <img src="images/Log1.jpg" width="400" height="400" alt="StarterStore" class="responsive">
+</div>
+
+<div class="text-center">
+    <h3 class="subtitle" style="color:#FF7F50">Save Money. Live Better!</h3>
+</div>
+
+
+
+
+
+<nav class="container-fluid text-center pt-3">
+    
+        <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+            <ul class="navbar-nav flex-grow-1">
+                <li class="nav-item">
+                    <div class="dropdown">
+                        <button class="btn btn-outline-warning dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            People
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" asp-area="" asp-controller="Employee" asp-action="Index">Employee</a>
+                            <a class="dropdown-item" asp-area="" asp-controller="Customer" asp-action="Index">Customer</a>
+                        </div>
+                    </div>
+                    <div class="btn-group">
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="dropdown">
+                        <button class="btn btn-outline-warning dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Companies
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" asp-area="" asp-controller="Shipper" asp-action="Index">Shipper</a>
+                            <a class="dropdown-item" asp-area="" asp-controller="Supplier" asp-action="Index">Supplier</a>
+                        </div>
+                    </div>
+                    <div class="btn-group">
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="dropdown">
+                        <button class="btn btn-outline-warning dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Manage inventory
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" asp-area="" asp-controller="Product" asp-action="Index">Product</a>
+                            <a class="dropdown-item" asp-area="" asp-controller="Category" asp-action="Index">Category</a>
+                        </div>
+                    </div>
+                    <div class="btn-group">
+                    </div>
+                </li>
+                
+                <li class="nav-item">
+                    <div class="dropdown">
+                        <button class="btn btn-outline-warning dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Sales
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" asp-area="" asp-controller="Order" asp-action="Index">Order</a>
+
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+   
+</nav>
+

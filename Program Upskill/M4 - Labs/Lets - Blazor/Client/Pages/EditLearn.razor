@@ -1,0 +1,40 @@
+﻿@page "/editar-Learn/{id}"
+
+@using MudBlazor
+
+@inject HttpClient Http
+@inject NavigationManager NavigationManager
+<h3>Editar Learn</h3>
+
+<EditForm Model="@Learn" OnValidSubmit="@Edit">
+    <div class="form-group">
+        <label for="text">Texto:</label>
+        <InputText id="text" @bind-Value="@Learn.Text" class="form-control" />
+    </div>
+    <div class="form-control-file">
+        <label style="box-shadow: 0 2px 7px #4caf50;
+        display: inline-flex;
+        width: 150px;
+        justify-content: space-around;
+        border-radius: 2em;
+        color: white;
+        border: 2px solid;
+        cursor: pointer;
+        align-items: center;
+        padding: 16px;
+        background-color: #4caf50;" for="fileInput">Upload<MudIcon Icon="@Icons.Filled.CloudUpload" /></label>
+
+        <InputFile id="fileInput" OnChange="UploadFile" hidden multiple />.
+    </div>
+    @if (Learn.Image != null)
+    {
+        <div class="col-4">
+            <img style="width:300px; height: auto" src="@ConvertImageToDisplay(Learn.Image)" />
+        </div>
+
+        <button type="submit" class="btn btn-danger" @onclick="RemoveImage">Remover Imagem</button><br /><br />
+    }
+    <div>
+        <button type="submit" class="btn btn-success">Editar</button>
+    </div>
+</EditForm>

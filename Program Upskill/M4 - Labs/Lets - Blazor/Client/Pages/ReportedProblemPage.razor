@@ -1,0 +1,102 @@
+﻿@page "/ReportedProblemPage"
+
+@inject HttpClient Http
+@inject NavigationManager NavigationManager
+
+@if (LastSubmittedResult != null)
+{
+    <h4 class="message">@LastSubmittedResult</h4>
+}
+
+<div class="form">
+    <EditForm Model="@ReportedProblem" OnValidSubmit="@PostForm">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+        <div class="userEmail">
+            <label for="userEmail" class="form-label">E-mail:</label>
+            <br />
+            <InputText id="userEmail" @bind-Value="ReportedProblem.UserEmail" placeholder="nome@examplo.com"></InputText>
+        </div>
+        <br />
+        <div class="text">
+            <label for="text" class="form-label">Descrição:</label>
+            <br />
+            <InputTextArea id="text" @bind-Value="ReportedProblem.Text" placeholder="Descreva o problema com o maior detalhe possível"></InputTextArea>
+        </div>
+        <br />
+        <div class="buttons">
+            <button type="submit" class="btn btn-primary send">Enviar</button>
+            <button type="button" class="btn btn-danger exit" @onclick="Exit">Sair</button>
+        </div>
+    </EditForm>
+</div>
+
+<style>
+    h4.message {
+        display: block;
+        color: darkgreen;
+        background-color: lightgreen;
+        text-align: center;
+        width: 75%;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 25px;
+    }
+
+    .validation-message {
+        margin-left: 2%;
+        margin-top: 2%;
+    }
+
+    .form {
+        display: block;
+        width: 75%;
+        height: auto;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 2%;
+        margin-bottom: auto;
+        border-color: #F1D072;
+        border: 2px solid #F1D072;
+        border-radius: 25px;
+    }
+
+        .userEmail {
+            width: auto;
+            height: auto;
+            margin-top: 2%;
+            margin-left: 2%;
+        }
+
+            input#userEmail.valid {
+                width: 98%;
+                height: auto;
+                border: 1px solid lightgrey;
+            }
+
+        .text {
+            display: block;
+            width: auto;
+            height: auto;
+            margin-top: 2%;
+            margin-left: 2%;
+        }
+
+            textarea#text.valid {
+                width: 98%;
+                border-color: lightgrey;
+            }
+
+        .buttons {
+            display: block;
+            margin-bottom: 2%;
+            margin-left: 2%;
+            margin-right: 2%;
+            margin-top: auto;
+        }
+
+            .btn.btn-danger.exit {
+                float: right;
+            }
+</style>
+

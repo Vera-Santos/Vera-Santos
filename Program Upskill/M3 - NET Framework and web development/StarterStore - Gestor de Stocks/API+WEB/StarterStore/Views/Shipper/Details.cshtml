@@ -1,0 +1,40 @@
+@model Shipper
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+        <li class="breadcrumb-item"><a asp-area="" asp-controller="Shipper" asp-action="Index">Shipper</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Details</li>
+    </ol>
+</nav>
+<h2>Shipper's Detail</h2>
+
+
+<div class="table-responsive">
+    <table class="table">
+        <tbody>
+            <tr>
+                <td style="font-weight: bold"> @Html.DisplayNameFor(model => model.ShipperID) </td>
+                <td class="text-left"> @Html.DisplayFor(model => model.ShipperID) </td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold"> @Html.DisplayNameFor(model => model.CompanyName) </td>
+                <td> @Html.DisplayFor(model => model.CompanyName)
+            </tr>
+            <tr>
+                <td style="font-weight: bold"> @Html.DisplayNameFor(model => model.Phone) </td>
+                <td> @Html.DisplayFor(model => model.Phone)
+            </tr>
+        </tbody>
+    </table>
+</div>
+<br>
+<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <button style="color:lightgrey" class="btn-lg" type="button">
+        <a style="color:#FF7F50" asp-area="" asp-controller="Shipper" asp-action="Index">Back to List</a>
+    </button>
+</div>

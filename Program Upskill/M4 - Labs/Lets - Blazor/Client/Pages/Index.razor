@@ -1,0 +1,349 @@
+﻿@page "/"
+@using Microsoft.AspNetCore.Components.Authorization
+@using Microsoft.AspNetCore.Components.WebAssembly.Authentication
+
+<style>
+    /* rgba(255,120,50, .8), (255, 185,0, .8)*/
+
+    .contentmain {
+        background-color: white;
+        padding: 0% 10%;
+    }
+
+    :root {
+        --gradient-color: linear-gradient(to bottom right, rgba(55, 177, 135, 0.8),rgba(55, 235, 85, 0.8));
+    }
+
+    /* >>> Quote Cards */
+
+    .quote_card {
+        display: flex;
+        flex-direction: column;
+        background-color: #fff;
+        box-shadow: 2px .8px 10px rgba(0, 0,0, 0.5);
+        transition: transform .5s;
+    }
+
+        .quote_card a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+    .image_data {
+        height: 25rem;
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+    }
+
+    .background_image {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: url("images/quote_pics/mandela.jpg") center no-repeat;
+        background-size: cover;
+        z-index: -1;
+        transition: transform 3s;
+    }
+
+    .quote_card:hover .background_image {
+        transform: scale(1.5);
+    }
+
+    .publication_details {
+        width: 100%;
+        height: 100%;
+        background: var(--gradient-color);
+        font-weight: bold;
+        color: white;
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 1rem;
+    }
+
+        .publication_details i {
+            margin-right: 1rem;
+        }
+
+    .author {
+        display: inline-block;
+        margin-bottom: .5rem;
+        transition: all .5s;
+    }
+
+        .author:hover {
+            color: rgba(250, 250, 250, 0.8);
+        }
+
+    .author_details {
+        display: block;
+    }
+
+    .post_data {
+        background-color: white;
+        padding: 2rem 3rem;
+        position: relative;
+    }
+
+    .tittle {
+        font-size: 2rem;
+        line-height: 1;
+    }
+
+    .subtittle {
+        font-size: 1.5rem;
+        font-weight: 400;
+        text-transform: uppercase;
+        color: gray;
+        margin: 1rem 0 1.5rem 0;
+    }
+
+    .quote {
+        position: relative;
+    }
+
+        .quote::first-letter {
+            margin-left: 1rem;
+        }
+
+        .quote::before {
+            content: ' ';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: .5rem;
+            height: 1rem;
+            background: var(--gradient-color);
+            border-radius: 1rem;
+        }
+
+    .cta {
+        text-align: right;
+        font-weight: bold;
+        margin-top: 1rem;
+    }
+
+        .cta a {
+            background: #37B187;
+            -webkit-background-clip: text;
+            color: transparent;
+            position: relative;
+        }
+
+            .cta a::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                bottom: -.5rem;
+                width: 100%;
+                height: 3px;
+                background: #37B187;
+                transform: scaleX(0);
+                transform-origin: left;
+                transition: .5s;
+            }
+
+            .cta a:hover::before {
+                transform: scaleX(1);
+            }
+
+            @@media screen and (min-width: 600px) {
+                .quote_card {
+                    flex-direction: row;
+                    max-height: 90rem;
+                    transition: transform .5s;
+                }
+
+                .image_data {
+                    flex-basis: 30%;
+                    height:unset;
+                }
+
+                .publication_details {
+                    transform: translateX(-100%);
+                    transition: transform .5s;
+                }
+
+                .quote_card:hover .publication_details{
+                    transform:translateX(0);                    
+                }
+
+                .author{
+                    transform: translateY(-3rem);
+                    opacity:0;
+                    transition-delay: .3s;
+                }
+
+                .author_details {
+                    transform: translateY(3rem);
+                    opacity: 0;
+                    transition: all .5s .3s;
+                }
+                .quote_card:hover .author,
+                .quote_card:hover .author_details {
+                    transform: translateY(0);
+                    opacity:1;
+                }
+
+                .post_data {
+                    flex-basis:60%;
+                }
+            }
+
+    @@keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    .quote_card:nth-child(1) {
+        animation: fadeIn .5s 0.5s backwards;
+    }
+
+</style>
+
+<div class="contentmain">
+    <BSCard CardType="CardType.Deck">
+        <BSCard Alignment="Alignment.Center">
+
+            <BSCard CardType="CardType.Image" VerticalAlignment="VerticalAlignment.Top" src="/images/students/a.jpg" alt="Card image cap" width="100%" />
+
+            <BSCard CardType="CardType.Body">
+                <BSCard CardType="CardType.Title"> Para Alunos</BSCard>
+                @*<BSCard CardType="CardType.Subtitle">Card subtitle</BSCard>*@
+                <BSCard CardType="CardType.Text">Com a aplicação LETS, os alunos podem consultor conteúdos letivos de forma dinâmica e interativa, realizar testes e consultar as soluções dos mesmos de forma a apreender os conteúdos de uma forma diferente da tradicional.</BSCard>
+                <div class="cta">
+                    <a href="objectivos"> Leia mais &rarr;</a>
+                </div>
+            </BSCard>
+        </BSCard>
+
+        <BSCard Alignment="Alignment.Center">
+
+            <BSCard CardType="CardType.Image" VerticalAlignment="VerticalAlignment.Top" src="/images/teachers/c.jpg" alt="Card image cap" width="100%" />
+
+            <BSCard CardType="CardType.Body">
+                <BSCard CardType="CardType.Title"> Para Professores </BSCard>
+                @*<BSCard CardType="CardType.Subtitle">Card subtitle</BSCard>*@
+                <BSCard CardType="CardType.Text">Os professores podem recorrer à aplicação LETS para tirar partido dos conteúdos existentes e utilizar os mesmos para lecionar em contexto de sala de aula não sendo necessária qualquer apetência informática, sempre à distância de um clique.</BSCard>
+                <div class="cta">
+                    <a href="objectivos"> Leia mais &rarr;</a>
+                </div>
+            </BSCard>
+        </BSCard>
+
+        <BSCard Alignment="Alignment.Center">
+
+            <BSCard CardType="CardType.Image" VerticalAlignment="VerticalAlignment.Top" src="/images/parents/a.jpg" alt="Card image cap" width="100%" />
+
+
+            <BSCard CardType="CardType.Body">
+                <BSCard CardType="CardType.Title"> Para Encarregados de Educação </BSCard>
+                @*<BSCard CardType="CardType.Subtitle">Card subtitle</BSCard>*@
+                <BSCard CardType="CardType.Text">Quanto aos encarregados de educação, os mesmos podem aceder aos percursos que os seus educandos realizam na aplicação LETS, percebendo quais os conteúdos em que existem maiores e menores dificuldades.</BSCard>
+
+                <div class="cta">
+                    <a href="objectivos"> Leia mais &rarr;</a>
+                </div>
+            </BSCard>
+        </BSCard>
+    </BSCard>
+    <br />
+    <br />
+    <div class="quote_cards">
+        <div class="quote_card">
+            <div class="image_data">
+                <div class="background_image"></div>
+                <div class="publication_details">
+                    <a href="#" class="author"> <i class="fa fa-user-circle-o"> </i> Nelson Mandela </a>
+                    <span class="author_details"> <i class="fa fa-id-card-o"> </i> Líder revolucionário, líder politico, filantropo </span>
+                </div>
+            </div>
+
+            <div class="post_data">
+                <h1 class="tittle"> "A educação é a ferramenta mais poderosa que podemos usar para mudar o mundo." </h1>
+                <h2 class="subtittle"> - Nelson Mandela </h2>
+            </div>
+        </div>
+    </div>
+    <br />   
+  
+</div>
+
+
+@*@code {
+    int q = 0;
+    IList<Quote> quotes = new List<Quote>
+{
+        new Quote
+        {
+            Source="/images/students/a.jpg",
+            Alt="First Slide",
+            Caption="- Nelson Mandela",
+            Header="'A educação é a ferramenta mais poderosa que podemos usar para mudar o mundo.'"
+        },
+
+        new Quote
+        {
+            Source="/images/students/b.jpg",
+            Alt="Second Slide",
+            Caption="Slide 2",
+            Header="Slide 2 Header"
+        },
+
+        new Quote
+        {
+            Source="/images/students/c.jpg",
+            Alt="Third Slide",
+            Caption="Slide 3",
+            Header="Slide 3 Header"
+        },
+
+        new Quote
+        {
+            Source="/images/students/d.jpg",
+            Alt="First Slide",
+            Caption="Slide 1",
+            Header="Slide 1 Header"
+        },
+
+        new Quote
+        {
+            Source="/images/students/e.jpg",
+            Alt="Second Slide",
+            Caption="Slide 2",
+            Header="Slide 2 Header"
+        },
+
+        new Quote
+        {
+            Source="/images/students/f.jpg",
+            Alt="Third Slide",
+            Caption="Slide 3",
+            Header="Slide 3 Header"
+        }
+
+    };
+
+
+    class Quote
+    {
+        public string Source { get; set; }
+        public string Alt { get; set; }
+        public string Caption { get; set; }
+        public string Header { get; set; }
+    }
+
+   
+    private void indexChanged(int index)
+    {
+        Console.WriteLine("Index Changed: " + index);
+    }
+}*@

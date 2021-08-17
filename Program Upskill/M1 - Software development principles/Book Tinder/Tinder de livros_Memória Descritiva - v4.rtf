@@ -1,0 +1,359 @@
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang2070{\fonttbl{\f0\fnil\fcharset0 Arial;}{\f1\fnil\fcharset0 Calibri;}{\f2\fnil\fcharset0 Courier New;}{\f3\fnil\fcharset2 Symbol;}}
+{\colortbl ;\red0\green0\blue255;\red47\green111\blue159;\red248\green249\blue250;\red33\green37\blue41;\red0\green110\blue224;\red215\green48\blue56;}
+{\*\generator Riched20 10.0.19041}\viewkind4\uc1 
+\pard\sa160\sl240\slmult1\qj\fs22\lang22 1. Um HTML para Login\par
+2. Um HTML para Livros\par
+3. Um HTML para Sobre\par
+4. Um CSS para as tr\'eas p\'e1ginas de HTML\par
+\f1\par
+
+\pard{\pntext\f3\'B7\tab}{\*\pn\pnlvlblt\pnf3\pnindent360{\pntxtb\'B7}}\fi-360\li720\sa160\sl240\slmult1\qj\b\f0\fs28 HTML para Login\par
+
+\pard\sa160\sl240\slmult1\qj\fs22 1.1. NAVBAR\par
+\b0 Fonte: {{\field{\*\fldinst{HYPERLINK https://getbootstrap.com/docs/4.5/components/navbar/ }}{\fldrslt{https://getbootstrap.com/docs/4.5/components/navbar/\ul0\cf0}}}}\f0\fs22  \par
+\f1\par
+\cf2\highlight3\f2\fs21 <nav\cf4  \cf5 class=\cf6 "navbar navbar-expand-lg navbar-light bg-light"\cf2 >\par
+\cf4   \cf2 <a\cf4  \cf5 class=\cf6 "navbar-brand"\cf4  \cf5 href=\cf6 "#"\cf2 >\cf4 Navbar\cf2 </a>\par
+\cf4   \cf2 <button\cf4  \cf5 class=\cf6 "navbar-toggler"\cf4  \cf5 type=\cf6 "button"\cf4  \cf5 data-toggle=\cf6 "collapse"\cf4  \cf5 data-target=\cf6 "#navbarSupportedContent"\cf4  \cf5 aria-controls=\cf6 "navbarSupportedContent"\cf4  \cf5 aria-expanded=\cf6 "false"\cf4  \cf5 aria-label=\cf6 "Toggle navigation"\cf2 >\par
+\cf4     \cf2 <span\cf4  \cf5 class=\cf6 "navbar-toggler-icon"\cf2 ></span>\par
+\cf4   \cf2 </button>\par
+\cf0\highlight0\f1\fs22\par
+\cf4\highlight3\f2\fs21   \cf2 <div\cf4  \cf5 class=\cf6 "collapse navbar-collapse"\cf4  \cf5 id=\cf6 "navbarSupportedContent"\cf2 >\par
+\cf4     \cf2 <ul\cf4  \cf5 class=\cf6 "navbar-nav mr-auto"\cf2 >\par
+\cf4       \cf2 <li\cf4  \cf5 class=\cf6 "nav-item active"\cf2 >\par
+\cf4         \cf2 <a\cf4  \cf5 class=\cf6 "nav-link"\cf4  \cf5 href=\cf6 "#"\cf2 >\cf4 Home \cf2 <span\cf4  \cf5 class=\cf6 "sr-only"\cf2 >\cf4 (current)\cf2 </span></a>\par
+\cf4       \cf2 </li>\par
+\cf4       \cf2 <li\cf4  \cf5 class=\cf6 "nav-item"\cf2 >\par
+\cf4         \cf2 <a\cf4  \cf5 class=\cf6 "nav-link"\cf4  \cf5 href=\cf6 "#"\cf2 >\cf4 Link\cf2 </a>\par
+\cf4       \cf2 </li>\par
+\cf4       \cf2 <li\cf4  \cf5 class=\cf6 "nav-item dropdown"\cf2 >\par
+\cf4         \cf2 <a\cf4  \cf5 class=\cf6 "nav-link dropdown-toggle"\cf4  \cf5 href=\cf6 "#"\cf4  \cf5 id=\cf6 "navbarDropdown"\cf4  \cf5 role=\cf6 "button"\cf4  \cf5 data-toggle=\cf6 "dropdown"\cf4  \cf5 aria-haspopup=\cf6 "true"\cf4  \cf5 aria-expanded=\cf6 "false"\cf2 >\par
+\cf4           Dropdown\par
+        \cf2 </a>\par
+\cf4         \cf2 <div\cf4  \cf5 class=\cf6 "dropdown-menu"\cf4  \cf5 aria-labelledby=\cf6 "navbarDropdown"\cf2 >\par
+\cf4           \cf2 <a\cf4  \cf5 class=\cf6 "dropdown-item"\cf4  \cf5 href=\cf6 "#"\cf2 >\cf4 Action\cf2 </a>\par
+\cf4           \cf2 <a\cf4  \cf5 class=\cf6 "dropdown-item"\cf4  \cf5 href=\cf6 "#"\cf2 >\cf4 Another action\cf2 </a>\par
+\cf4           \cf2 <div\cf4  \cf5 class=\cf6 "dropdown-divider"\cf2 ></div>\par
+\cf4           \cf2 <a\cf4  \cf5 class=\cf6 "dropdown-item"\cf4  \cf5 href=\cf6 "#"\cf2 >\cf4 Something else here\cf2 </a>\par
+\cf4         \cf2 </div>\par
+\cf4       \cf2 </li>\par
+\cf4       \cf2 <li\cf4  \cf5 class=\cf6 "nav-item"\cf2 >\par
+\cf4         \cf2 <a\cf4  \cf5 class=\cf6 "nav-link disabled"\cf4  \cf5 href=\cf6 "#"\cf4  \cf5 tabindex=\cf6 "-1"\cf4  \cf5 aria-disabled=\cf6 "true"\cf2 >\cf4 Disabled\cf2 </a>\par
+\cf4       \cf2 </li>\par
+\cf4     \cf2 </ul>\par
+\cf4     \cf2 <form\cf4  \cf5 class=\cf6 "form-inline my-2 my-lg-0"\cf2 >\par
+\cf4       \cf2 <input\cf4  \cf5 class=\cf6 "form-control mr-sm-2"\cf4  \cf5 type=\cf6 "search"\cf4  \cf5 placeholder=\cf6 "Search"\cf4  \cf5 aria-label=\cf6 "Search"\cf2 >\par
+\cf4       \cf2 <button\cf4  \cf5 class=\cf6 "btn btn-outline-success my-2 my-sm-0"\cf4  \cf5 type=\cf6 "submit"\cf2 >\cf4 Search\cf2 </button>\par
+\cf4     \cf2 </form>\par
+\cf4   \cf2 </div>\par
+</nav>\par
+\cf0\highlight0\f1\fs22\par
+\b\f0 1.2. FORMS\par
+\b0 Fonte: {{\field{\*\fldinst{HYPERLINK https://getbootstrap.com/docs/4.5/components/forms/ }}{\fldrslt{https://getbootstrap.com/docs/4.5/components/forms/\ul0\cf0}}}}\f0\fs22  \par
+\f1\par
+\cf2\highlight3\f2\fs21 <form>\par
+\cf4   \cf2 <div\cf4  \cf5 class=\cf6 "form-group"\cf2 >\par
+\cf4     \cf2 <label\cf4  \cf5 for=\cf6 "exampleInputEmail1"\cf2 >\cf4 Email address\cf2 </label>\par
+\cf4     \cf2 <input\cf4  \cf5 type=\cf6 "email"\cf4  \cf5 class=\cf6 "form-control"\cf4  \cf5 id=\cf6 "exampleInputEmail1"\cf4  \cf5 aria-describedby=\cf6 "emailHelp"\cf2 >\par
+\cf4     \cf2 <small\cf4  \cf5 id=\cf6 "emailHelp"\cf4  \cf5 class=\cf6 "form-text text-muted"\cf2 >\cf4 We'll never share your email with anyone else.\cf2 </small>\par
+\cf4   \cf2 </div>\par
+\cf4   \cf2 <div\cf4  \cf5 class=\cf6 "form-group"\cf2 >\par
+\cf4     \cf2 <label\cf4  \cf5 for=\cf6 "exampleInputPassword1"\cf2 >\cf4 Password\cf2 </label>\par
+\cf4     \cf2 <input\cf4  \cf5 type=\cf6 "password"\cf4  \cf5 class=\cf6 "form-control"\cf4  \cf5 id=\cf6 "exampleInputPassword1"\cf2 >\par
+\cf4   \cf2 </div>\par
+\cf4   \cf2 <div\cf4  \cf5 class=\cf6 "form-group form-check"\cf2 >\par
+\cf4     \cf2 <input\cf4  \cf5 type=\cf6 "checkbox"\cf4  \cf5 class=\cf6 "form-check-input"\cf4  \cf5 id=\cf6 "exampleCheck1"\cf2 >\par
+\cf4     \cf2 <label\cf4  \cf5 class=\cf6 "form-check-label"\cf4  \cf5 for=\cf6 "exampleCheck1"\cf2 >\cf4 Check me out\cf2 </label>\par
+\cf4   \cf2 </div>\par
+\cf4   \cf2 <button\cf4  \cf5 type=\cf6 "submit"\cf4  \cf5 class=\cf6 "btn btn-primary"\cf2 >\cf4 Submit\cf2 </button>\par
+</form>\par
+\cf0\highlight0\f1\fs22\par
+\b\f0 1.3. FOOTER\par
+\b0 Fonte: \par
+\f1\par
+\par
+
+\pard{\pntext\f3\'B7\tab}{\*\pn\pnlvlblt\pnf3\pnindent360{\pntxtb\'B7}}\fi-360\li720\sa160\sl240\slmult1\qj\b\f0\fs28 HTML para Livros\par
+
+\pard\sa160\sl240\slmult1\qj\fs22 2.1. LOGOTIPO:\par
+\b0 Fonte: {\b{\field{\*\fldinst{HYPERLINK https://www.freelogodesign.org/ }}{\fldrslt{https://www.freelogodesign.org/\ul0\cf0}}}}\b\f0\fs22\par
+\b0\f1\par
+\par
+\b\f0 2.2. NAV BAR + LOGOTIPO\par
+\b0 Fonte: {{\field{\*\fldinst{HYPERLINK https://getbootstrap.com/docs/4.5/components/navbar/ }}{\fldrslt{https://getbootstrap.com/docs/4.5/components/navbar/\ul0\cf0}}}}\f0\fs22\par
+<nav class="navbar navbar-light bg-light">\par
+  <a class="navbar-brand" href="#">\par
+    <img src="/docs/4.5/assets/brand/bootstrap-solid.svg" width="30" height="30" alt="" loading="lazy">\par
+  </a>\par
+</nav>\par
+\f1\par
+\f0 <nav class="navbar navbar-expand-lg navbar-light bg-light">\par
+            <nav class="navbar navbar-light bg-light">\par
+                      <a class="navbar-brand" href="#">\par
+                      <img src="logo2.png" width="30" height="30" alt="" loading="lazy">\par
+                    </a>\par
+            </nav>\par
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">\par
+                <ul class="navbar-nav mr-auto">\par
+                <li class="nav-item active">\par
+                  <a class="nav-link" href="#">Sobre n\'f3s <span class="sr-only">(current)</span></a>\par
+                </li>\par
+                <li class="nav-item">\par
+                  <a class="nav-link" href="#">Log In</a>\par
+                </li>\par
+                </ul>\par
+                <form class="form-inline my-2 my-lg-0">\par
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">\par
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>\par
+                  </form>\par
+            </div>\par
+        </nav>\par
+\f1\par
+\b\f0 2.3 CORPO DO BOOK TINDER\par
+\b0 Fonte: {{\field{\*\fldinst{HYPERLINK https://www.w3schools.com/css/css_rwd_frameworks.asp }}{\fldrslt{https://www.w3schools.com/css/css_rwd_frameworks.asp\ul0\cf0}}}}\f0\fs22\par
+<div class="w3-container w3-green">\par
+  <h1>W3Schools Demo</h1>\par
+  <p>Resize this responsive page!</p>\par
+</div>\par
+\f1\par
+\f0 <div class="w3-row-padding">\par
+  <div class="w3-third">\par
+    <h2>London</h2>\par
+    <p>London is the capital city of England.</p>\par
+    <p>It is the most populous city in the United Kingdom,\par
+    with a metropolitan area of over 13 million inhabitants.</p>\par
+  </div>\par
+\f1\par
+\f0   <div class="w3-third">\par
+    <h2>Paris</h2>\par
+    <p>Paris is the capital of France.</p>\par
+    <p>The Paris area is one of the largest population centers in Europe,\par
+    with more than 12 million inhabitants.</p>\par
+  </div>\par
+\f1\par
+\f0   <div class="w3-third">\par
+    <h2>Tokyo</h2>\par
+    <p>Tokyo is the capital of Japan.</p>\par
+    <p>It is the center of the Greater Tokyo Area,\par
+    and the most populous metropolitan area in the world.</p>\par
+  </div>\par
+</div>\par
+\f1\par
+\f0 CARD dentro de cada CONTAINER\par
+Fonte: {{\field{\*\fldinst{HYPERLINK https://getbootstrap.com/docs/4.5/components/card/ }}{\fldrslt{https://getbootstrap.com/docs/4.5/components/card/\ul0\cf0}}}}\f0\fs22\par
+<div class="card" style="width: 18rem;">\par
+  <img src="..." class="card-img-top" alt="...">\par
+  <div class="card-body">\par
+    <h5 class="card-title">Card title</h5>\par
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>\par
+    <a href="#" class="btn btn-primary">Go somewhere</a>\par
+  </div>\par
+</div>\par
+\f1\par
+\b\f0 2.4. PAGINA\'c7\'c3O\par
+\b0 Fonte: {{\field{\*\fldinst{HYPERLINK https://getbootstrap.com/docs/4.5/components/pagination/ }}{\fldrslt{https://getbootstrap.com/docs/4.5/components/pagination/\ul0\cf0}}}}\f0\fs22\par
+\f1\par
+\b\f0 2.5 CONTACTOS + BOT\'d5ES DE REDES SOCIAIS\par
+\b0 Fonte: {{\field{\*\fldinst{HYPERLINK https://getbootstrap.com/docs/4.5/components/card/ }}{\fldrslt{https://getbootstrap.com/docs/4.5/components/card/\ul0\cf0}}}}\f0\fs22  (Footer)\par
+<div class="card text-center">\par
+  <div class="card-header">\par
+    Featured\par
+  </div>\par
+  <div class="card-body">\par
+    <h5 class="card-title">Special title treatment</h5>\par
+    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>\par
+    <a href="#" class="btn btn-primary">Go somewhere</a>\par
+  </div>\par
+  <div class="card-footer text-muted">\par
+    2 days ago\par
+  </div>\par
+</div>\par
+Fonte: {{\field{\*\fldinst{HYPERLINK https://www.w3schools.com/howto/howto_css_social_media_buttons.asp }}{\fldrslt{https://www.w3schools.com/howto/howto_css_social_media_buttons.asp\ul0\cf0}}}}\f0\fs22  (Bot\'f5es de redes sociais)\par
+<!-- Add icon library -->\par
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">\par
+\f1\par
+\f0 <!-- Add font awesome icons -->\par
+<a href="#" class="fa fa-facebook"></a>\par
+<a href="#" class="fa fa-twitter"></a>\par
+<a href="#" class="fa fa-linkedin"></a>\par
+ <a href="#" class="fa fa-instagram"></a>\par
+\f1\par
+\f0 .fa \{\par
+  padding: 20px;\par
+  font-size: 30px;\par
+  width: 50px;\par
+  text-align: center;\par
+  text-decoration: none;\par
+\}\par
+.fa-facebook \{\par
+  background: #3B5998;\par
+  color: white;\par
+\}\par
+.fa-twitter \{\par
+  background: #55ACEE;\par
+  color: white;\par
+\}\par
+.fa-linkedin \{\par
+  background: #007bb5;\par
+  color: white;\par
+\}\par
+.fa-instagram \{\par
+  background: #125688;\par
+  color: white;\par
+\}\par
+\f1 _________________________\par
+Novo footer: {{\field{\*\fldinst{HYPERLINK https://getbootstrap.com/docs/4.5/components/card/ }}{\fldrslt{https://getbootstrap.com/docs/4.5/components/card/\ul0\cf0}}}}\f1\fs22\par
+<div class="row">\par
+  <div class="col-sm-6">\par
+    <div class="card">\par
+      <div class="card-body">\par
+        <h5 class="card-title">Special title treatment</h5>\par
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>\par
+        <a href="#" class="btn btn-primary">Go somewhere</a>\par
+      </div>\par
+    </div>\par
+  </div>\par
+  <div class="col-sm-6">\par
+    <div class="card">\par
+      <div class="card-body">\par
+        <h5 class="card-title">Special title treatment</h5>\par
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>\par
+        <a href="#" class="btn btn-primary">Go somewhere</a>\par
+      </div>\par
+    </div>\par
+  </div>\par
+</div>\par
+\par
+
+\pard{\pntext\f3\'B7\tab}{\*\pn\pnlvlblt\pnf3\pnindent360{\pntxtb\'B7}}\fi-360\li720\sa160\sl240\slmult1\qj\b\f0\fs28 HTML para Sobre\par
+
+\pard\sa160\sl240\slmult1\qj\fs22 3.1. HEADER e FOOTER\par
+Igual ao do html para livros\par
+\b0\f1\par
+\b\f0 3.2 A nossa miss\'e3o / conceito\par
+\b0 <div class="media">\par
+  <img src="..." class="mr-3" alt="...">\par
+  <div class="media-body">\par
+    <h5 class="mt-0">Media heading</h5>\par
+    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.\par
+  </div>\par
+</div>\par
+\f1\par
+\b\f0 3.3 A Equipa\par
+\b0 <div class="about-section">\par
+  <h1>About Us Page</h1>\par
+  <p>Some text about who we are and what we do.</p>\par
+  <p>Resize the browser window to see that this page is responsive by the way.</p>\par
+</div>\par
+\f1\par
+\f0 <h2 style="text-align:center">Our Team</h2>\par
+<div class="row">\par
+  <div class="column">\par
+    <div class="card">\par
+      <img src="/w3images/team1.jpg" alt="Jane" style="width:100%">\par
+      <div class="container">\par
+        <h2>Jane Doe</h2>\par
+        <p class="title">CEO & Founder</p>\par
+        <p>Some text that describes me lorem ipsum ipsum lorem.</p>\par
+        <p>jane@example.com</p>\par
+        <p><button class="button">Contact</button></p>\par
+      </div>\par
+    </div>\par
+  </div>\par
+\f1\par
+\f0   <div class="column">\par
+    <div class="card">\par
+      <img src="/w3images/team2.jpg" alt="Mike" style="width:100%">\par
+      <div class="container">\par
+        <h2>Mike Ross</h2>\par
+        <p class="title">Art Director</p>\par
+        <p>Some text that describes me lorem ipsum ipsum lorem.</p>\par
+        <p>mike@example.com</p>\par
+        <p><button class="button">Contact</button></p>\par
+      </div>\par
+    </div>\par
+  </div>\par
+\f1\par
+\f0   <div class="column">\par
+    <div class="card">\par
+      <img src="/w3images/team3.jpg" alt="John" style="width:100%">\par
+      <div class="container">\par
+        <h2>John Doe</h2>\par
+        <p class="title">Designer</p>\par
+        <p>Some text that describes me lorem ipsum ipsum lorem.</p>\par
+        <p>john@example.com</p>\par
+        <p><button class="button">Contact</button></p>\par
+      </div>\par
+    </div>\par
+  </div>\par
+</div>\par
+body \{\par
+  font-family: Arial, Helvetica, sans-serif;\par
+  margin: 0;\par
+\}\par
+\f1\par
+\f0 html \{\par
+  box-sizing: border-box;\par
+\}\par
+\f1\par
+\f0 *, *:before, *:after \{\par
+  box-sizing: inherit;\par
+\}\par
+\f1\par
+\f0 .column \{\par
+  float: left;\par
+  width: 33.3%;\par
+  margin-bottom: 16px;\par
+  padding: 0 8px;\par
+\}\par
+\f1\par
+\f0 .card \{\par
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\par
+  margin: 8px;\par
+\}\par
+\f1\par
+\f0 .about-section \{\par
+  padding: 50px;\par
+  text-align: center;\par
+  background-color: #474e5d;\par
+  color: white;\par
+\}\par
+\f1\par
+\f0 .container \{\par
+  padding: 0 16px;\par
+\}\par
+\f1\par
+\f0 .container::after, .row::after \{\par
+  content: "";\par
+  clear: both;\par
+  display: table;\par
+\}\par
+\f1\par
+\f0 .title \{\par
+  color: grey;\par
+\}\par
+\f1\par
+\f0 .button \{\par
+  border: none;\par
+  outline: 0;\par
+  display: inline-block;\par
+  padding: 8px;\par
+  color: white;\par
+  background-color: #000;\par
+  text-align: center;\par
+  cursor: pointer;\par
+  width: 100%;\par
+\}\par
+\f1\par
+\f0 .button:hover \{\par
+  background-color: #555;\par
+\}\par
+\f1\par
+\f0 @media screen and (max-width: 650px) \{\par
+  .column \{\par
+    width: 100%;\par
+    display: block;\par
+  \}\par
+\}\par
+}
+ 

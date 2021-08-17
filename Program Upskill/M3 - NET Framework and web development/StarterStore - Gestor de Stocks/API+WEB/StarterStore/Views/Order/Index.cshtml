@@ -1,0 +1,76 @@
+@model IEnumerable<Order>
+
+@{
+    ViewData["Title"] = "Order's List";
+}
+
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Order</li>
+    </ol>
+</nav>
+<h2>Order's List</h2>
+
+<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <button style="background-color: white; border: 2px solid #FF7F50; border-radius: 12px;" class="btn-lg" type="button">
+        @Html.ActionLink("Add Order", "Create")
+    </button>
+</div>
+<br />
+<table class="table" id="tblSOrder">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmployeeID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ShipName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Freight)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustomerID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmployeeID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShipName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Freight)
+            </td>
+            <td>
+                <button style="background-color: white; border: 2px solid #FF7F50; border-radius: 12px;" type="button">
+                    @Html.ActionLink("Edit", "Edit", new { id = item.OrderID })
+                </button>
+                <button style="background-color: white; border: 2px solid #FF7F50; border-radius: 12px;" type="button">
+                    @Html.ActionLink("Details", "Details", new { id = item.OrderID })
+                </button>
+                <button style="background-color: white; border: 2px solid #FF7F50; border-radius: 12px;" type="button">
+                    @Html.ActionLink("Delete", "Delete", new { id = item.OrderID })
+                </button>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

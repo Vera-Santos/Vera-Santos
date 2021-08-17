@@ -1,0 +1,68 @@
+@model Product
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+        <li class="breadcrumb-item"><a asp-area="" asp-controller="Product" asp-action="Index">Product</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Details</li>
+    </ol>
+</nav>
+<h2>Product's Detail</h2>
+
+
+<div class="table-responsive">
+    <table class="table">
+        <tbody>
+            <tr>
+                <td style="font-weight: bold"> @Html.DisplayNameFor(model => model.ProductID) </td>
+                <td class="text-left"> @Html.DisplayFor(model => model.ProductID) </td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold"> @Html.DisplayNameFor(model => model.ProductName) </td>
+                <td> @Html.DisplayFor(model => model.ProductName)
+            </tr>
+            <tr>
+                <td style="font-weight: bold"> @Html.DisplayNameFor(model => model.SupplierId) </td>
+                <td> @Html.DisplayFor(model => model.SupplierId)
+            </tr>
+            <tr>
+                <td style="font-weight: bold"> @Html.DisplayNameFor(model => model.CategoryId) </td>
+                <td> @Html.DisplayFor(model => model.CategoryId)
+            </tr>
+            <tr>
+                <td style="font-weight: bold"> @Html.DisplayNameFor(model => model.QuantityPerUnit) </td>
+                <td> @Html.DisplayFor(model => model.QuantityPerUnit)
+            </tr>
+            <tr>
+                <td style="font-weight: bold"> @Html.DisplayNameFor(model => model.UnitPrice) </td>
+                <td> @Html.DisplayFor(model => model.UnitPrice)
+            </tr>
+            <tr>
+                <td style="font-weight: bold"> @Html.DisplayNameFor(model => model.UnitsInStock) </td>
+                <td> @Html.DisplayFor(model => model.UnitsInStock)
+            </tr>
+            <tr>
+                <td style="font-weight: bold"> @Html.DisplayNameFor(model => model.UnitsOnOrder) </td>
+                <td> @Html.DisplayFor(model => model.UnitsOnOrder)
+            </tr>
+            <tr>
+                <td style="font-weight: bold"> @Html.DisplayNameFor(model => model.ReorderLevel) </td>
+                <td> @Html.DisplayFor(model => model.ReorderLevel)
+            </tr>
+            <tr>
+                <td style="font-weight: bold"> @Html.DisplayNameFor(model => model.Discontinued) </td>
+                <td> @Html.DisplayFor(model => model.Discontinued)
+            </tr>
+        </tbody>
+    </table>
+</div>
+<br>
+<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <button style="color:lightgrey" class="btn-lg" type="button">
+        <a style="color:#FF7F50" asp-area="" asp-controller="Product" asp-action="Index">Back to List</a>
+    </button>
+</div>

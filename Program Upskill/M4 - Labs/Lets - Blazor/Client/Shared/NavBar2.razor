@@ -1,0 +1,511 @@
+@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Components.Authorization
+@using Microsoft.AspNetCore.Components.WebAssembly.Authentication
+
+@inject HttpClient Http
+@inject AuthenticationStateProvider AuthenticationStateProvider
+
+<style>
+
+    .Row {
+        display: table;
+        width: 100%;
+        background-color: #37B187;
+        z-index:1;
+    }
+
+    .Column {
+        display: table-cell;
+        width: 33%;
+        text-align: center;
+        vertical-align: top;
+
+    }
+
+    .Column1 {
+        display: table-cell;
+        width: 33%;
+        vertical-align: middle;
+        text-align: center;
+    }
+
+        .Column1 img {
+            max-height: 50px;
+        }
+
+    .Column a:hover {
+        color: #F1D072;
+    }
+
+    /*checkbox*/
+    .hamburger1 {
+        margin: 10px;
+        display: inline-block;
+        grid-template-rows: repeat(3, 1fr);
+        justify-items: center;
+    }
+
+        .hamburger1 div {
+            background-color: rgb(61, 61, 61);
+            position: relative;
+            width: 40px;
+            height: 5px;
+            margin-top: 7px;
+            -webkit-transition: all 0.2s ease-in-out;
+            transition: all 0.2s ease-in-out;
+            background-color: white;
+        }
+
+    #toggle1 {
+        display: none;
+    }
+
+        #toggle1:@toggle1 + .hamburger1 .top {
+            -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+            margin-top: 22.5px;
+        }
+
+        #toggle1:@toggle1 + .hamburger1 .meat {
+            -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+            margin-top: -5px;
+        }
+
+        #toggle1:@toggle1 + .hamburger1 .bottom {
+            -webkit-transform: scale(0);
+            transform: scale(0);
+        }
+
+        #toggle1 {
+
+        }
+        /*menu*/
+        .menu {
+            display: @display;
+            flex-direction: row;
+            align-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+    .dropbtn {
+        background-color: #37B187;
+        color: white;
+        padding: 16px;
+        font-size: 16px;
+        border: none;
+        width: 100%;
+    }
+
+
+    .dropdown {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height:40px;
+    }
+
+    .dropdown1 {
+        background-color: #F1D072;
+        width:100%;
+    }
+
+    .dropdown2 {
+        display: none;
+        position: absolute;
+        z-index: 2;
+    }
+
+    .dropdown:hover .dropdown2 {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+    }
+
+
+    .dropdown-content {
+        display: none;
+        background-color: #f1f1f1;
+        width: 100%;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    }
+
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+    .dropdown1:hover .dropdown-content {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        background-color: #F1D072;
+        text-align: center;
+    }
+
+    .dropdown-content a:hover {
+        background-color: #37B187
+    }
+
+    a {
+        color: #fff;
+        text-decoration: none;
+    }
+
+    .Logo {
+        display: none;
+        padding:1%;
+        margin:1%;
+        margin-right:2%;
+    }
+
+    .Login {
+        display: none;
+    }
+
+    .Home {
+        display: none;
+        z-index: 1;
+    }
+
+    .toolBar {
+        background-color: #37B187;
+        height:10%;
+    }
+
+    .Logo a {
+        display: contents;
+        z-index: 2;
+    }
+
+    #administrador{
+        display:none;
+    }
+
+    #registo {
+        display: none;
+    }
+
+    #loginLink {
+        vertical-align: sub;
+    }
+
+    @@media screen and (min-width: 400px) {
+
+        #registo {
+            display: block;
+        }
+
+        .Row {
+            display: none;
+            justify-content: space-between;
+        }
+
+        .menu {
+            display:flex;
+            justify-content: space-between;
+
+        }
+
+        .Logo {
+            display: flex;
+            width: 100px;
+            height: 72px;
+            background-color: #37B187;
+            margin-top:5px;
+            align-content:center;
+            align-items:center;
+            margin-left:20px;
+        }
+
+            .Logo img {
+                height: 70%;
+                width: 70%;
+                padding-left: 10%;
+                padding-top: 10%;
+                z-index:2;
+
+            }
+
+        .dropdown {
+            width: 10%;
+        }
+
+        .Login {
+            display: flex;
+            flex-direction: column;
+            background-color: #37B187;
+            max-height: 51px;
+            min-height: 51px;
+            align-items: end;
+            justify-content: center;
+            padding-right: 2%;
+            text-align: center;
+            margin-top: 7px;
+        }
+
+            .Login a {
+                color: white;
+            }
+
+                .Login a:hover {
+                    color: #F1D072;
+                }
+
+        .Home {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            width: 10%;
+            margin-top: 3px;
+            text-align: center;
+            z-index: 1;
+        }
+
+        .dropbtn1 {
+            background-color: #37B187;
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+            width: 100%;
+        }
+
+        .toolBar {
+            height:10%;
+        }
+
+        .Home a {
+            text-decoration: none;
+        }
+
+        .Home a:hover {
+            color:white;
+        }
+    }
+</style>
+@if (identityRole == null)
+{
+
+}
+else
+{
+    <div class="toolBar">
+
+        <div class="Row">
+            <div class="Column1">
+                <a href="https://localhost:5001/"><img src="images/Lets.png" alt="logo"></a>
+            </div>
+            <div class="Column">
+                <input id="toggle1" type="checkbox" @onclick="OnClick" />
+                <label class="hamburger1" for="toggle1">
+                    <div class="top"></div>
+                    <div class="meat"></div>
+                    <div class="bottom"></div>
+                </label>
+            </div>
+            <div class="Column" id="entrar">
+                <a id="registo" href="authentication/register">Registar</a><br />
+        <a id="loginLink" href="authentication/profile">Perfil</a>
+            </div>
+        </div>
+
+
+        <div class="menu">
+            <div class="Logo">
+                <a href="https://localhost:5001/"><img src="images/Lets.png" style="width:188px; height:164px" alt="logo"></a>
+            </div>
+            <div class="Home">
+                <a href="https://localhost:5001/" class="dropbtn1">Inicio</a>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">1º Ciclo</button>
+                <div class="dropdown2">
+                    <div class="dropdown1">
+                        <button class="dropbtn">1º Ano</button>
+                        <div class="dropdown-content">
+                            <a href="javascript:void(0);">Português</a>
+                            <a href="javascript:void(0);">Matemática</a>
+                            <a href="javascript:void(0);">Estudo do Meio</a>
+                        </div>
+                    </div>
+                    <div class="dropdown1">
+                        <button class="dropbtn">2º Ano</button>
+                        <div class="dropdown-content">
+                            <a href="javascript:void(0);">Português</a>
+                            <a href="javascript:void(0);">Matemática</a>
+                            <a href="javascript:void(0);">Estudo do Meio</a>
+                        </div>
+                    </div>
+                    <div class="dropdown1">
+                        <button class="dropbtn">3º Ano</button>
+                        <div class="dropdown-content">
+                            <a href="javascript:void(0);">Português</a>
+                            <a href="javascript:void(0);">Matemática</a>
+                            <a href="javascript:void(0);">Estudo do Meio</a>
+                        </div>
+                    </div>
+                    <div class="dropdown1">
+                        <button class="dropbtn">4º Ano</button>
+                        <div class="dropdown-content">
+                            <a href="javascript:void(0);">Português</a>
+                            <a href="javascript:void(0);">Matemática</a>
+                            <a href="javascript:void(0);">Estudo do Meio</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button class="dropbtn">2º Ciclo</button>
+                <div class="dropdown2">
+                    <div class="dropdown1">
+                        <button class="dropbtn">5º Ano</button>
+                        <div class="dropdown-content">
+                            <a href="javascript:void(0);">Português</a>
+                            <a href="javascript:void(0);">Matemática</a>
+                            <a href="javascript:void(0);">Inglês</a>
+                            <a href="javascript:void(0);">Ciências da Natureza</a>
+                            <a href="javascript:void(0);">História e Geografia de Portugal</a>
+                        </div>
+                    </div>
+                    <div class="dropdown1">
+                        <button class="dropbtn">6º Ano</button>
+                        <div class="dropdown-content">
+                            <a href="javascript:void(0);">Português</a>
+                            <a href="javascript:void(0);">Matemática</a>
+                            <a href="javascript:void(0);">Inglês</a>
+                            <a href="javascript:void(0);">Ciências da Natureza</a>
+                            <a href="javascript:void(0);">História e Geografia de Portugal</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <button class="dropbtn">3º Ciclo</button>
+                <div class="dropdown2">
+                    <div class="dropdown1">
+                        <button class="dropbtn">7º Ano</button>
+                        <div class="dropdown-content">
+                            <a href="javascript:void(0);">Português</a>
+                            <a href="/SubjectPage/24" @onclick="OnClick2">Matemática</a>
+                            <a href="javascript:void(0);">Inglês</a>
+                            <a href="javascript:void(0);">Francês</a>
+                            <a href="javascript:void(0);">História</a>
+                            <a href="javascript:void(0);">Geografia</a>
+                            <a href="javascript:void(0);">Ciências Naturais</a>
+                            <a href="javascript:void(0);">Ciências Físico-químicas</a>
+                        </div>
+                    </div>
+                    <div class="dropdown1">
+                        <button class="dropbtn">8º Ano</button>
+                        <div class="dropdown-content">
+                            <a href="javascript:void(0);">Português</a>
+                            <a href="javascript:void(0);">Matemática</a>
+                            <a href="javascript:void(0);">Inglês</a>
+                            <a href="javascript:void(0);">Francês</a>
+                            <a href="javascript:void(0);">História</a>
+                            <a href="javascript:void(0);">Geografia</a>
+                            <a href="javascript:void(0);">Ciências Naturais</a>
+                            <a href="javascript:void(0);">Ciências Físico-químicas</a>
+                        </div>
+                    </div>
+                    <div class="dropdown1">
+                        <button class="dropbtn">9º Ano</button>
+                        <div class="dropdown-content">
+                            <a href="javascript:void(0);">Português</a>
+                            <a href="javascript:void(0);">Matemática</a>
+                            <a href="javascript:void(0);">Inglês</a>
+                            <a href="javascript:void(0);">Francês</a>
+                            <a href="javascript:void(0);">História</a>
+                            <a href="javascript:void(0);">Geografia</a>
+                            <a href="javascript:void(0);">Ciências Naturais</a>
+                            <a href="javascript:void(0);">Ciências Físico-químicas</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            @if (identityRole.Name == "Admin")
+            {
+                <div class="dropdown">
+                    <button class="dropbtn">Admin</button>
+                    <div class="dropdown2">
+                        <div class="dropdown1">
+                            <button class="dropbtn">Gestor</button>
+                            <div class="dropdown-content">
+                                <a href="/administrator">Utilizadores</a>
+                                <a href="/Roles">Autorizações</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+           
+
+            <div class="Login">
+                <LoginDisplay></LoginDisplay>
+            </div>
+        </div>
+
+    </div>
+}
+    @code {
+
+        public string display { get; set; } = "none";
+        bool IsOpen { get; set; }
+        bool IsChecked { get; set; }
+        public string toggle1 { get; set; } = "";
+
+        public IdentityRole<string> identityRole { get; set; } = new IdentityRole<string>();
+
+        public ApplicationUser User { get; set; } = new ApplicationUser();
+
+        protected override async Task OnInitializedAsync()
+        {
+            await Task.Delay(5000);
+            var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+            var user = authState.User;
+
+
+            User.Id = user.FindFirst(c => c.Type == "sub")?.Value;
+
+            if (User.Id != null)
+            {
+                identityRole = await Http.GetFromJsonAsync<IdentityRole<string>>($"/api/ApplicationUser/GetRole/{User.Id}");
+            }
+            
+
+
+        }
+
+        void OnClick(MouseEventArgs e)
+        {
+            IsOpen = !IsOpen;
+            if (IsOpen)
+            {
+                display = "flex";
+                toggle1 = "checked";
+            }
+            else
+            {
+                display = "none";
+                toggle1 = "";
+            }
+        }
+
+        void OnClick2(MouseEventArgs e)
+        {
+            display = "none";
+            toggle1 = "";
+            IsOpen = false;
+        }
+    }

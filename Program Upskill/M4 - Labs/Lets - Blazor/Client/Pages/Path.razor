@@ -1,0 +1,228 @@
+﻿@page "/Path"
+
+@using System.Net.Http
+@using Microsoft.AspNetCore.Components.Authorization
+
+
+@inject HttpClient Http
+@inject HttpClient HttpClient
+@inject NavigationManager navigationManager
+@inject AuthenticationStateProvider AuthenticationStateProvider
+
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Conquistas</h5>
+                <p class="card-text">Consulta as tuas conquistas!</p>
+                <div>
+                    @if (Enrollments == null)
+                    {
+                        <p><em>Ainda não realizou nenhum teste!</em></p>
+                    }
+                    else
+                    {
+                        <div class="conq-container">
+                            <div class="bconquistas">
+                                <a class="alert-primary" @onclick="e => conquistas()">Ver Conquistas</a>
+                            </div>
+                        </div>
+                        <div class="conquistas">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-hover">
+                                    <tr>
+                                        <th>Ano:</th>
+                                        <th>Disciplina:</th>
+                                        <th>Matéria:</th>
+                                        <th>Pontuação:</th>
+                                        <th>Data de teste:</th>
+                                        <th></th>
+                                    </tr>
+                                    @foreach (var enrollment in Enrollments)
+                                    {
+                                        @if (enrollment.HasSuccess == true)
+                                        {
+                                            <tr>
+                                                <td>@enrollment.Test.Subject.CycleGradeCourse.Cycle - @enrollment.Test.Subject.CycleGradeCourse.Grade</td>
+                                                <td>@enrollment.Test.Subject.CycleGradeCourse.Course</td>
+                                                <td>@enrollment.Test.Subject.SubjectName</td>
+                                                <td>@enrollment.Score %</td>
+                                                <td>@enrollment.DoneTestAt.ToString("dd - MM - yyyy")</td>
+                                                <td>
+                                                    <a class="btn btn-outline-primary" @onclick="e =>OpenCloseModal(e, enrollment.EnrollmentID)">Ver Teste</a>
+                                                    <ModalTest Title="@enrollment.Test.Subject.SubjectName" IsOpened="IsOpened">
+                                                        <ModalBody>
+                                                            @if (clicked == 1)
+                                                            {
+                                                                <ViewTestPage id="verifyId"></ViewTestPage>
+                                                            }
+                                                        </ModalBody>
+                                                        <ModalFooter>
+                                                            <button class="btn btn-primary" @onclick="@(() => navigationManager.NavigateTo("/Path", true))">Voltar</button>
+                                                        </ModalFooter>
+                                                    </ModalTest>
+                                                </td>
+                                            </tr>
+                                        }
+                                    }
+                                </table>
+                            </div>
+                            </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Tentativas</h5>
+                <p class="card-text">Consulta as tuas tentativas!</p>
+                <div>
+                    @if (Enrollments == null)
+                    {
+                        <p><em>Ainda não realizou nenhum teste!</em></p>
+                    }
+                    else
+                    {
+                        <div class="conq-container">
+                            <div class="btentativas">
+                                <a class="alert-primary" @onclick="e => tentativas()">Ver Tentativas</a>
+                            </div>
+                        </div>
+                        <div class="tentativas">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-hover">
+                                    <tr>
+                                        <th>Ano:</th>
+                                        <th>Disciplina:</th>
+                                        <th>Matéria:</th>
+                                        <th>Pontuação:</th>
+                                        <th>Data de teste:</th>
+                                        <th></th>
+                                    </tr>
+                                    @foreach (var enrollment in Enrollments)
+                                    {
+                                        @if (enrollment.HasSuccess == false)
+                                        {
+                                            <tr>
+                                                <td>@enrollment.Test.Subject.CycleGradeCourse.Cycle - @enrollment.Test.Subject.CycleGradeCourse.Grade</td>
+                                                <td>@enrollment.Test.Subject.CycleGradeCourse.Course</td>
+                                                <td>@enrollment.Test.Subject.SubjectName</td>
+                                                <td>@enrollment.Score %</td>
+                                                <td>@enrollment.DoneTestAt.ToString("dd - MM - yyyy")</td>
+                                                <td>
+                                                    <a class="btn btn-outline-primary" @onclick="e =>OpenCloseModal(e, enrollment.EnrollmentID)">Ver Teste</a>
+                                                    <ModalTest Title="@enrollment.Test.Subject.SubjectName" IsOpened="IsOpened">
+                                                        <ModalBody>
+                                                            @if (clicked == 1)
+                                                            {
+                                                                <ViewTestPage id="verifyId"></ViewTestPage>
+                                                            }
+                                                        </ModalBody>
+                                                        <ModalFooter>
+                                                            <button class="btn btn-primary" @onclick="@(() => navigationManager.NavigateTo("/Path", true))">Voltar</button>
+                                                        </ModalFooter>
+                                                    </ModalTest>
+                                                </td>
+                                            </tr>
+                                        }
+                                    }
+                                </table>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="testetentativas">
+    teste
+</div>
+
+<style>
+.row {
+    margin: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    z-index:0;
+}
+.card-path {
+    margin: 10px;
+    justify-content: center;
+    align-items: center;
+}
+.card-title {
+    color: #37B187;
+}
+.conquistas{
+    display:@display;
+}
+.bconquistas {
+    display: @display2;
+}
+.tentativas {
+    display: @display3;
+    align-items: center;
+    justify-content: center;
+    color: #37B187;
+    margin-left: auto;
+    margin-right: auto;
+}
+.btentativas {
+    display: @display4;
+}
+.testetentativas {
+    display: @display5;
+}
+.conq-container {
+    width: 30%;
+    height: 10%;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+}
+.conq-container a {
+    display: flex;
+    align-items: center;
+    background-color: #F1D072;
+    margin: 1%;
+    text-align: center;
+    font-size: 17px;
+    justify-content: center;
+    word-wrap: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    position: sticky;
+    text-decoration: none;
+    border-radius: 10px;
+    background-color: #4A5A9F;
+    cursor: pointer;
+    height: 50px;
+   width: 100px;
+}
+
+.conq-container a:hover {
+    overflow: visible;
+    background-color: #37B187;
+}
+@@font-face {
+    font-family: Poppins;
+    src: url("Poppins-Regular.ttf");
+}
+@@media screen and (min-width: 400px) {
+    .conq-container a {
+        height: 80px;
+        width: 100%;
+    }
+}
+</style>
+
+

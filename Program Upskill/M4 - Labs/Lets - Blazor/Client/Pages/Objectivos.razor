@@ -1,0 +1,272 @@
+﻿@page "/objectivos"
+
+
+<div class="contentmain">
+    <br />
+
+    <BSCarousel NumberOfItems="@students.Count" Fade="true">
+        <BSCarouselIndicators ActiveIndexChangedEvent="@indexChanged"></BSCarouselIndicators>
+        <div class="carousel-inner">
+            @for (int i = 0; i < students.Count; i++)
+            {
+                Student student = students[i];
+                <BSCarouselItem src="@student.Source" alt="@student.Alt" style="width:100%;height:100%">
+                    <BSCarouselCaption />
+                </BSCarouselItem>
+            }
+        </div>
+
+        <BSCarouselControl CarouselDirection="CarouselDirection.Previous" />
+        <BSCarouselControl CarouselDirection="CarouselDirection.Next" />
+    </BSCarousel>
+
+    <BSJumbotron>
+        <h1 class="display-5" id="students">Para alunos</h1>
+        <p class="lead"> Com a aplicação LETS, os alunos podem consultor conteúdos letivos de forma dinâmica e interativa, realizar testes e consultar as soluções dos mesmos de forma a apreender os conteúdos de uma forma diferente da tradicional.</p>
+        <hr class="my-4" />
+        <p> Matéria aprovada por educadores acompanhada de exemplos práticos, testes e solução.   </p>
+    </BSJumbotron>
+
+    <br />
+
+    <BSCarousel NumberOfItems="@teachers.Count" Fade="true">
+        <BSCarouselIndicators ActiveIndexChangedEvent="@indexChanged"></BSCarouselIndicators>
+        <div class="carousel-inner">
+            @for (int i = 0; i < teachers.Count; i++)
+            {
+                Teacher teacher = teachers[i];
+                <BSCarouselItem src="@teacher.Source" alt="@teacher.Alt" style="width:100%;height:100%">
+                    <BSCarouselCaption />
+                </BSCarouselItem>
+            }
+        </div>
+
+        <BSCarouselControl CarouselDirection="CarouselDirection.Previous" />
+        <BSCarouselControl CarouselDirection="CarouselDirection.Next" />
+    </BSCarousel>
+
+    <BSJumbotron>
+        <h1 class="display-5" id="teachers">Para professores</h1>
+        <p class="lead"> Os professores podem recorrer à aplicação LETS para tirar partido dos conteúdos existentes e utilizar os mesmos para lecionar em contexto de sala de aula não sendo necessária qualquer apetência informática, sempre à distância de um clique.</p>
+        <hr class="my-4" />
+        <p> Matéria aprovada por educadores acompanhada de exemplos práticos, testes e solução. </p>
+    </BSJumbotron>
+
+    <br />
+
+    
+    <BSCarousel NumberOfItems="@parents.Count" Fade="true">
+        <BSCarouselIndicators ActiveIndexChangedEvent="@indexChanged"></BSCarouselIndicators>
+        <div class="carousel-inner">
+            @for (int i = 0; i < parents.Count; i++)
+            {
+                Parent parent = parents[i];
+                <BSCarouselItem src="@parent.Source" alt="@parent.Alt" style="width:100%;height:100%">
+                    <BSCarouselCaption />
+                </BSCarouselItem>
+            }
+        </div>
+
+        <BSCarouselControl CarouselDirection="CarouselDirection.Previous" />
+        <BSCarouselControl CarouselDirection="CarouselDirection.Next" />
+    </BSCarousel>
+
+    <BSJumbotron>
+        <h1 class="display-5" id="parents">Para encarregados de educação</h1>
+        <p class="lead"> Quanto aos encarregados de educação, os mesmos podem aceder aos percursos que os seus educandos realizam na aplicação LETS, percebendo quais os conteúdos em que existem maiores e menores dificuldades.</p>
+        <hr class="my-4" />
+        <p> Matéria aprovada por educadores acompanhada de exemplos práticos, testes e solução. </p>
+    </BSJumbotron>
+
+    <br />
+
+</div>
+
+<style>
+
+    .contentmain {
+        background-color: white;
+        padding: 0% 5%;
+    }
+</style>
+
+@code {
+    int s = 0;
+    IList<Student> students = new List<Student>
+{
+        new Student
+        {
+            Source="/images/students/a.jpg",
+            Alt="First Slide",
+            Caption="Slide 1",
+            Header="Slide 1 Header"
+        },
+
+        new Student
+        {
+            Source="/images/students/b.jpg",
+            Alt="Second Slide",
+            Caption="Slide 2",
+            Header="Slide 2 Header"
+        },
+
+        new Student
+        {
+            Source="/images/students/c.jpg",
+            Alt="Third Slide",
+            Caption="Slide 3",
+            Header="Slide 3 Header"
+        },
+
+        new Student
+        {
+            Source="/images/students/d.jpg",
+            Alt="First Slide",
+            Caption="Slide 1",
+            Header="Slide 1 Header"
+        },
+
+        new Student
+        {
+            Source="/images/students/e.jpg",
+            Alt="Second Slide",
+            Caption="Slide 2",
+            Header="Slide 2 Header"
+        },
+
+        new Student
+        {
+            Source="/images/students/f.jpg",
+            Alt="Third Slide",
+            Caption="Slide 3",
+            Header="Slide 3 Header"
+        }
+    };
+
+
+
+    IList<Teacher> teachers = new List<Teacher>
+{
+        new Teacher
+        {
+            Source="/images/teachers/a.jpg",
+            Alt="First Slide",
+            Caption="Slide 1",
+            Header="Slide 1 Header"
+        },
+        new Teacher
+        {
+            Source="/images/teachers/b.jpg",
+            Alt="First Slide",
+            Caption="Slide 1",
+            Header="Slide 1 Header"
+        },
+        new Teacher
+        {
+            Source="/images/teachers/c.jpg",
+            Alt="First Slide",
+            Caption="Slide 1",
+            Header="Slide 1 Header"
+        },
+        new Teacher
+        {
+            Source="/images/teachers/d.jpg",
+            Alt="First Slide",
+            Caption="Slide 1",
+            Header="Slide 1 Header"
+        },
+
+        new Teacher
+        {
+            Source="/images/teachers/e.jpg",
+            Alt="Second Slide",
+            Caption="Slide 2",
+            Header="Slide 2 Header"
+        },
+
+        new Teacher
+        {
+            Source="/images/teachers/f.jpg",
+            Alt="Third Slide",
+            Caption="Slide 3",
+            Header="Slide 3 Header"
+        }
+    };
+
+    IList<Parent> parents = new List<Parent>
+{
+        new Parent
+        {
+            Source="/images/parents/a.jpg",
+            Alt="First Slide",
+            Caption="Slide 1",
+            Header="Slide 1 Header"
+        },
+        new Parent
+        {
+            Source="/images/parents/b.jpg",
+            Alt="First Slide",
+            Caption="Slide 1",
+            Header="Slide 1 Header"
+        },
+        new Parent
+        {
+            Source="/images/parents/c.jpg",
+            Alt="First Slide",
+            Caption="Slide 1",
+            Header="Slide 1 Header"
+        },
+        new Parent
+        {
+            Source="/images/parents/d.jpg",
+            Alt="First Slide",
+            Caption="Slide 1",
+            Header="Slide 1 Header"
+        },
+
+        new Parent
+        {
+            Source="/images/parents/e.jpg",
+            Alt="Second Slide",
+            Caption="Slide 2",
+            Header="Slide 2 Header"
+        },
+
+        new Parent
+        {
+            Source="/images/parents/f.jpg",
+            Alt="Third Slide",
+            Caption="Slide 3",
+            Header="Slide 3 Header"
+        }
+    };
+
+    class Student
+    {
+        public string Source { get; set; }
+        public string Alt { get; set; }
+        public string Caption { get; set; }
+        public string Header { get; set; }
+    }
+
+    class Teacher
+    {
+        public string Source { get; set; }
+        public string Alt { get; set; }
+        public string Caption { get; set; }
+        public string Header { get; set; }
+    }
+
+    class Parent
+    {
+        public string Source { get; set; }
+        public string Alt { get; set; }
+        public string Caption { get; set; }
+        public string Header { get; set; }
+    }
+
+    private void indexChanged(int index)
+    {
+        Console.WriteLine("Index Changed: " + index);
+    }
+}

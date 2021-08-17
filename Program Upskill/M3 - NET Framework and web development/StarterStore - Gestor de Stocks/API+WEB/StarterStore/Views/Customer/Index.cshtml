@@ -1,0 +1,70 @@
+@model IEnumerable<Customer>
+
+@{
+    ViewData["Title"] = "Customer's List";
+}
+
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Customer</li>
+    </ol>
+</nav>
+<h2>Customer's List</h2>
+
+<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <button style="background-color: white; border: 2px solid #FF7F50; border-radius: 12px;" class="btn-lg" type="button">
+        @Html.ActionLink("Add Customer", "Create")
+    </button>
+</div>
+<br />
+<table class="table" id="tblSCustomer">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CompanyName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ContactName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ContactTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Phone)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompanyName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ContactName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ContactTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                <button style="background-color: white; border: 2px solid #FF7F50; border-radius: 12px;" type="button">
+                    @Html.ActionLink("Edit", "Edit", new { id = item.CustomerID })
+                </button>
+                <button style="background-color: white; border: 2px solid #FF7F50; border-radius: 12px;" type="button">
+                    @Html.ActionLink("Details", "Details", new { id = item.CustomerID })
+                </button>
+                <button style="background-color: white; border: 2px solid #FF7F50; border-radius: 12px;" type="button">
+                    @Html.ActionLink("Delete", "Delete", new { id = item.CustomerID })
+                </button>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

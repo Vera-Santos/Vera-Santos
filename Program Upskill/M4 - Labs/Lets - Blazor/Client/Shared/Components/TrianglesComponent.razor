@@ -1,0 +1,84 @@
+﻿@page "/triangles-component"
+
+<div>
+    <img style="width:50%; height: auto" src="@ConvertImageToDisplay(Example.Image)" />
+</div>
+
+<h6>Para obter a classificação de um Triângulo, indique as medidas dos 3 lados do Triângulo:</h6>
+<br />
+
+<div class="container-input">
+
+    <label name="side_1">Lado 1:</label>
+    <input type="number" @bind-value="side1" name="side_1" required="required" class="custom-input" />
+    <br />
+
+    <label name="side_2">Lado 2:</label>
+    <input type="number" @bind-value="side2" name="side_2" required="required" class="custom-input" />
+    <br />
+
+    <label name="side_3">Lado 3:</label>
+    <input type="number" @bind-value="side3" name="side_3" required="required" class="custom-input" />
+
+</div>
+<br />
+
+<div>
+    <p>@result</p>
+</div>
+
+<button class="btn btn-info" @onclick="CalculateTriangle">Mostrar Resultado</button>
+
+<style>
+    .container-input {
+        width: 150px;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+    .custom-input {
+        background-color: lightblue;
+        height: 30px;
+        width: 70px;
+    }
+</style>
+
+@code {
+
+    [Parameter]
+    public Example Example { get; set; } = new Example();
+    public double side1 { get; set; }
+    public double side2 { get; set; }
+    public double side3 { get; set; }
+    public string result { get; set; }
+
+
+    string ConvertImageToDisplay(byte[] image)
+    {
+        if (image != null)
+        {
+            var imageData = Convert.ToBase64String(image);
+            var imageBase64 = string.Format("data:image/jpg;base64,{0}", imageData);
+            return imageBase64;
+        }
+        return "";
+    }
+
+
+    private void CalculateTriangle()
+    {
+
+        if (side1 == side2 && side2 == side3 && side3 == side1)
+        {
+            result = "O triângulo é Equilátero";
+        }
+        else if (side1 == side2 || side2 == side3 || side3 == side1)
+        {
+            result = "O triângulo é Isósceles";
+        }
+        else
+        {
+            result = "O triângulo é Escaleno";
+        }
+    }
+}

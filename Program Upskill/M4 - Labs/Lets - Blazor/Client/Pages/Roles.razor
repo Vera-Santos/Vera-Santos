@@ -1,0 +1,87 @@
+﻿@page "/Roles"   
+
+@inject HttpClient Http
+@inject NavigationManager NavigationManager
+
+
+<h3 class="title-users"> Gestão de Autorizações</h3>
+
+@if (usersWithRoles == null)
+{
+    <text>Loading...</text>
+}
+else
+{
+<div class="container-table">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>E-mail</th>
+                <th>Data de Aniversário</th>
+                <th>Telefone</th>
+                <th>Role</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (UserWithRoles user in usersWithRoles)
+            {
+                <tr>
+                    <td>@user.Nome</td>
+                    <td>@user.Email</td>
+                    <td>@user.DataNascimento.ToString("dd-MM-yyyy")</td>
+                    <td>@user.Telemovel</td>
+                    <td>
+                        <EditForm Model="@newUserWithRoles" OnValidSubmit="@Edit">
+                            <InputSelect @bind-Value="@newUserWithRoles.Id">
+                                <option value="@user.Texto">@user.Texto</option>
+                                <option value="@user.Id">@user.Id</option>
+                            </InputSelect>
+                            <InputSelect @bind-Value="@newUserWithRoles.Role">
+                                <option value="">@funcao1(user.Role)</option>
+                                <option value="">@funcao2(knowFirstRole)</option>
+                            </InputSelect>
+                            <button type="submit" class="btn btn-success">
+                                Editar
+                            </button>
+                        </EditForm>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    @Message
+</div>
+}
+    
+<style>
+    .title-users {
+        font-weight: bold;
+        width: 90%;
+        margin: auto;
+        margin-top: 50px;
+    }
+
+    .form-inline {
+        justify-content: flex-end;
+    }
+
+    .table {
+        margin-top: 1rem;
+    }
+
+    .container-table {
+        width: 90%;
+        margin: auto;
+    }
+
+    .pagination-container {
+        width: 90%;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        margin-top: 2rem;
+    }
+</style>
+
+

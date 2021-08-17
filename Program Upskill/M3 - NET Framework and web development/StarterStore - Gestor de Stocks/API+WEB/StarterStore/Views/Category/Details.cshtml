@@ -1,0 +1,46 @@
+@model Category
+
+@{
+    ViewData["Title"] = "Category";
+}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+        <li class="breadcrumb-item"><a asp-area="" asp-controller="Category" asp-action="Index">Category</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Details</li>
+    </ol>
+</nav>
+<h2>Category's Detail</h2>
+
+
+<div class="table-responsive">
+    <table class="table">
+        <tbody>
+            <tr>
+                <td style="font-weight: bold"> @Html.DisplayNameFor(model => model.CategoryID) </td>
+                <td> @Html.DisplayFor(model => model.CategoryID) </td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold"> @Html.DisplayNameFor(model => model.CategoryName) </td>
+                <td> @Html.DisplayFor(model => model.CategoryName) </td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold"> @Html.DisplayNameFor(model => model.Description) </td>
+                <td> @Html.DisplayFor(model => model.Description) </td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold"> @Html.DisplayNameFor(model => model.Picture) </td>
+                <td> <img src="@String.Format("data:image/jpg;base64,{0}", Model.Base64String)" /> </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+</div>
+<br>
+<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <button style="color:lightgrey" class="btn-lg" type="button">
+        <a style="color:#FF7F50" asp-area="" asp-controller="Category" asp-action="Index">Back to List</a>
+    </button>
+</div>
